@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+    const projectTitle = 'Sistema de reserva de auditorios'
+    const teamName = 'PumitasJrs'
+</script>
+
+
+
+<h1>{projectTitle}</h1>
+<h2>Equipo:</h2> 
+<span>{teamName}</span>
+<h2>Integrantes:</h2>
+<span>
+    Omar Carrillo
+</span>
+<br>
+
+
+<style>
+    h1 {
+        font-weight: 600;
+        font-size: large;
+    }
+</style>
