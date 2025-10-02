@@ -16,7 +16,7 @@
     Rosario Soriano
 </span>
 <span>
-    Rocio
+    Rocio Santana
 </span>
 <span>
     Antonio
