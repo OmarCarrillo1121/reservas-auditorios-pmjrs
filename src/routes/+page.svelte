@@ -12,6 +12,9 @@
 <span>
     Omar Carrillo
 </span>
+<span>
+    Rosario Soriano
+</span>
 <br>
 
 
