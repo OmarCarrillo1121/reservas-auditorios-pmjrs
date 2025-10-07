@@ -22,6 +22,12 @@
     Antonio
 </span>
 <br>
+<br>
+
+<a href="/login">Iniciar sesión</a>
+<a href="/reservations">Reservaciones</a>
+<a href="/search">Buscar</a>
+<a href="/dashboard">Administrador</a>
 
 
 <style>
