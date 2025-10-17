@@ -2,20 +2,43 @@
 <head>
     <title>QuickSearch works!</title>
     <style type="text/css"> 
+      <link href="https://fonts.googleapis.com/css2?family=Jost&family=Space+Grotesk&display=swap" rel="stylesheet">
+         body {
+            background-color: #1C3D6C;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family: 'Jost', sans-serif; /* JOST para h1 en escritorio */
+        }
+
         .boton {
-            background-color: #6B90E0;  
+            background-color: #2B5797;  
             color: white;
             border-radius: 16px;
             padding: 16px 24px;
             margin: 16px;
-            font-size:13.5px;
+            font-size: 20px;
             cursor: pointer;
-            min-width:48px;
+            min-width: 48px;
             min-height: 48px;
             text-align: left;
-            border:none;
+            border: none;
+            font-family: 'Space Grotesk', sans-serif; /* SPACE GROTESK para botones */
         }
 
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+                font-family: 'Jost', sans-serif; /* Mantener Jost en móvil */
+            }
+            .boton {
+                font-size: 16px; /* Tamaño responsive para botón */
+            }
+        }
+
+       
         .desplegable {
             position: relative;
             display: inline-block;
@@ -32,10 +55,11 @@
 
         .links a {
             text-decoration: none;
-            color: black;
+            color: #B0B5BC;
             display: block;
             padding: 13px;
             border-bottom: 1px solid #ddd;
+            font-family: 'Space Grotesk', sans-serif; 
         }
 
         .links a:hover {
@@ -66,6 +90,7 @@
         td {
             padding: 10px;
             vertical-align: top;
+            font-family: 'Space Grotesk', sans-serif; 
         }
 
         input[type="time"], input[type="date"] {
@@ -73,6 +98,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 13.5px;
+            font-family: 'Space Grotesk', sans-serif; 
         }
     </style>
 </head>
