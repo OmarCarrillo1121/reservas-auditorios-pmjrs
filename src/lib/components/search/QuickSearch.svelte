@@ -47,7 +47,7 @@
         .links {
             display: none;  
             position: absolute;
-            background-color: #f8f8f8;
+            background-color: #4B4F588;
             width: 300px;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
             z-index: 1000;
@@ -55,15 +55,15 @@
 
         .links a {
             text-decoration: none;
-            color: #B0B5BC;
+            color: #4B4F58;
             display: block;
             padding: 13px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #3A3A3A;
             font-family: 'Space Grotesk', sans-serif; 
         }
 
         .links a:hover {
-            background-color: #e0e0e0;
+            background-color: #4B4F58;
         }
 
         .desplegable:hover .links {
@@ -95,7 +95,7 @@
 
         input[type="time"], input[type="date"] {
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #3A3A3A;
             border-radius: 4px;
             font-size: 13.5px;
             font-family: 'Space Grotesk', sans-serif; 
