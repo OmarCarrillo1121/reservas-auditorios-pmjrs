@@ -3,14 +3,17 @@
     <title>QuickSearch works!</title>
     <style type="text/css"> 
         .boton {
-            background-color: #142C96;  
+            background-color: #6B90E0;  
             color: white;
-            border: none;
-            padding: 13px;
-            font-size: 13.5px;
+            border-radius: 16px;
+            padding: 16px 24px;
+            margin: 16px;
+            font-size:13.5px;
             cursor: pointer;
-            width: 300px;
+            min-width:48px;
+            min-height: 48px;
             text-align: left;
+            border:none;
         }
 
         .desplegable {
