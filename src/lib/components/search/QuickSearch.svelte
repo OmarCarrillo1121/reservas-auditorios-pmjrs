@@ -10,7 +10,7 @@
 
         h1 {
             font-size: 40px;
-            font-family: 'Jost', sans-serif; /* JOST para h1 en escritorio */
+            font-family: 'Jost', sans-serif;
         }
 
         .boton {
@@ -25,16 +25,16 @@
             min-height: 48px;
             text-align: left;
             border: none;
-            font-family: 'Space Grotesk', sans-serif; /* SPACE GROTESK para botones */
+            font-family: 'Space Grotesk', sans-serif; 
         }
 
         @media (max-width: 768px) {
             h1 {
                 font-size: 32px;
-                font-family: 'Jost', sans-serif; /* Mantener Jost en móvil */
+                font-family: 'Jost', sans-serif; 
             }
             .boton {
-                font-size: 16px; /* Tamaño responsive para botón */
+                font-size: 16px; 
             }
         }
 
