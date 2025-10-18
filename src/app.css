@@ -1,1 +1,128 @@
 @import 'tailwindcss';
+
+@import 'tailwindcss';
+
+:root {
+    /*Containers*/  
+    --max-width-lg: 1200px;
+    --max-width-md: 1024px;
+    --max-width-sm: 480px;
+  
+    --font-title: 'Jost', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --container-padding: 1rem;
+
+    /*Identity colors*/
+    --color-primary: #007262;
+    --color-primary-75: #00726275;
+    --color-primary-50: #00726250;
+    --color-primary-25: #00726225;
+    --color-primary-hover: #006593;
+    --color-secondary: #006593;
+    --color-secondary-hover: #004d70;
+    --color-accent: #CDA85F;
+    --color-accent-hover: #004d70;
+
+    /*Light theme*/
+    --color-bg: #F5FAFD;
+    --color-bg-cards: #fff;
+    --color-button-border: #1a1a1a;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #1a1a1a;
+    
+}
+
+html {
+  font-size: 16px;
+}
+
+/*Dark theme*/
+[data-theme='dark'] {
+  --color-bg: #121212;
+  --color-text: #f5f5f5;
+  --color-primary: #00aaff;
+  --color-secondary: #007799;
+}
+
+/*Content*/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+/*Desktop overrides*/
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 2rem;
+  }
+}
+
+/*Mobile overrides*/
+@media (max-width: 600px) {
+  :root {
+    --container-padding: 0.5rem;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+h2 {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width-lg);
+}
+
+.full-container {
+  width: 100vw;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  border: solid 1px blue;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  border: solid 1px blue;
+}
+
+.h-70 {
+  height: 70vh;
+}
+
+.f-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-row {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.f-center-center {
+  justify-content: center;
+  align-items: center;
+}
