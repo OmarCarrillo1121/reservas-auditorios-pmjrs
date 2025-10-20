@@ -1,13 +1,17 @@
 <script>
-    import BasicTable from '$lib/components/table/BasicTable.svelte';
+    import QuickSearch from "$lib/components/search/QuickSearch.svelte";
+    import ReservationCard from "$lib/components/cards/ReservationCard.svelte";
 </script>
 
-    <BasicTable />
+<section class="container">
+    <QuickSearch>
 
-    <br>
-<br>
-<a href="/">Regresar a pagina principal</a>
+    </QuickSearch>
+</section>
+<section class="container">
+    <ReservationCard></ReservationCard>
+</section>
     
 <style>
-    
+
 </style>
