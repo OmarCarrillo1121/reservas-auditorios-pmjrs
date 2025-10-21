@@ -4,14 +4,10 @@
 </script>
 
 <section class="container">
-    BUSQUEDA RAPIDA
+    MIS RESERVACIONES
     <QuickSearch>
 
     </QuickSearch>
-</section>
-<section class="container">
-    ULTIMAS RESERVACINES
-    <ReservationCard></ReservationCard>
 </section>
     
 <style>

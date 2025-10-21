@@ -70,19 +70,26 @@ body {
   height: 100%;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  font-family: var(--font-body);
+  font-family: var(--font-title);
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title);
+}
+
+h1 {
   font-weight: 500;
   font-size: 1.5rem;
 }
 
+h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
 h3 {
-  font-family: var(--font-title);
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 .container {

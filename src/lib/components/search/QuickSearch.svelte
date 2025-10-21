@@ -1,108 +1,11 @@
-<html lang="es">
-<head>
-    <title>QuickSearch works!</title>
-    <style type="text/css"> 
-      <link href="https://fonts.googleapis.com/css2?family=Jost&family=Space+Grotesk&display=swap" rel="stylesheet">
-         body {
-            background-color: #1C3D6C;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        h1 {
-            font-size: 40px;
-            font-family: 'Jost', sans-serif;
-        }
-
-        .boton {
-            background-color: #2B5797;  
-            color: white;
-            border-radius: 16px;
-            padding: 16px 24px;
-            margin: 16px;
-            font-size: 20px;
-            cursor: pointer;
-            min-width: 48px;
-            min-height: 48px;
-            text-align: left;
-            border: none;
-            font-family: 'Space Grotesk', sans-serif; 
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-                font-family: 'Jost', sans-serif; 
-            }
-            .boton {
-                font-size: 16px; 
-            }
-        }
-
-       
-        .desplegable {
-            position: relative;
-            display: inline-block;
-        }
-
-        .links {
-            display: none;  
-            position: absolute;
-            background-color: #4B4F588;
-            width: 300px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #4B4F58;
-            display: block;
-            padding: 13px;
-            border-bottom: 1px solid #3A3A3A;
-            font-family: 'Space Grotesk', sans-serif; 
-        }
-
-        .links a:hover {
-            background-color: #4B4F58;
-        }
-
-        .desplegable:hover .links {
-            display: block;
-        }
-
-        .linea-vertical {
-            border-left: 2px solid #142C96;
-            height: 80px;
-            margin: 0 15px;
-        }
-
-        .contenedor-segunda-tabla {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td {
-            padding: 10px;
-            vertical-align: top;
-            font-family: 'Space Grotesk', sans-serif; 
-        }
-
-        input[type="time"], input[type="date"] {
-            padding: 10px;
-            border: 1px solid #3A3A3A;
-            border-radius: 4px;
-            font-size: 13.5px;
-            font-family: 'Space Grotesk', sans-serif; 
-        }
-    </style>
-</head>
-<body>
+<script>
+    import { goto } from "$app/navigation";
+    function navigateTo(route) {
+        goto(route);
+    }
+</script>
+<!-- AQUI INICIA EL HTML -->
+    <span>QuickSearch works!</span>
     <h1>Consulta de fechas</h1>
     <hr>
     <br>
@@ -134,7 +37,7 @@
                 
                 <td>
                     <div class="desplegable"> 
-                        <button class="boton">Consultar</button>
+                        <button class="boton" onclick={()=> navigateTo('/user/dashboard')}>Consultar</button>
                     </div>
                 </td>                
             </tr>
@@ -166,12 +69,105 @@
                         <div class="linea-vertical" style="height: 40px;"></div>
                         
                         <div class="desplegable"> 
-                            <button class="boton">Elegir otra fecha</button>
+                            <button class="boton" onclick={()=> navigateTo('/user/dashboard')}>Elegir otra fecha</button>
                         </div>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</body>
-</html>
+<!-- AQUI TERMINA EL HTML -->
+<style>        h1 {
+        font-size: 40px;
+        font-family: var(--font-title);
+    }
+    .boton {
+        background-color: var(--color-primary);  
+        color: white;
+        border-radius: 16px;
+        padding: 16px 24px;
+        margin: 16px;
+        font-size: 20px;
+        cursor: pointer;
+        min-width: 48px;
+        min-height: 48px;
+        text-align: left;
+        border: none;
+        font-family: var(--font-body);
+    }
+
+    .boton:hover {
+        background-color: var(--color-primary-hover);
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 32px;
+        }
+        .boton {
+            font-size: 16px; 
+        }
+    }
+
+    .desplegable {
+        position: relative;
+        display: inline-block;
+    }
+
+    .links {
+        display: none;  
+        position: absolute;
+        background-color: var(--color-bg-cards);
+        width: 300px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .links a {
+        text-decoration: none;
+        color: var(--color-text-primary);
+        display: block;
+        padding: 13px;
+        border-bottom: 1px solid var(--color-primary-25);
+        font-family: var(--font-body); 
+    }
+
+    .links a:hover {
+        background-color: var(--color-primary-25);
+    }
+
+    .desplegable:hover .links {
+        display: block;
+    }
+
+    .linea-vertical {
+        border-left: 2px solid var(--color-primary);
+        height: 80px;
+        margin: 0 15px;
+    }
+
+    .contenedor-segunda-tabla {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td {
+        padding: 10px;
+        vertical-align: top;
+        font-family: var(--font-body); 
+    }
+
+    input[type="time"], input[type="date"] {
+        padding: 10px;
+        border: 1px solid var(--color-primary-50);
+        border-radius: 4px;
+        font-size: 13.5px;
+        font-family: var(--font-body); 
+    }
+</style>

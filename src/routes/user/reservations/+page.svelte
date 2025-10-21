@@ -1,11 +1,13 @@
 <script>
-    import ReservationCard from '$lib/components/cards/ReservationCard.svelte';
+    import BasicTable from "$lib/components/table/BasicTable.svelte";
+    import reservationsData from "$lib/data/reservations";
+    console.log(reservationsData);
+    let { columns, rows } = reservationsData;
 </script>
 
-    <ReservationCard />
-    <br>
-<br>
-<a href="/">Regresar a pagina principal</a>
+<section class="container">
+    <BasicTable {columns} {rows}/>
+</section>
     
 <style>
     
