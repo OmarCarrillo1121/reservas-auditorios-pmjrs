@@ -24,9 +24,9 @@
 <nav >
     <section class="container">
         <ul>
-            <li>INICIO</li>
-            <li>RESERVACIONES</li>
-            <li>CALENDARIO</li>
+            <li><a href="dashboard" onclick={() => navigateTo("/dashboard")}>Inicio</a></li>
+            <li><a href="reservations" onclick={() => navigateTo("/reservations")}>Reservaciones</a></li>
+            <li><a href="calendar" onclick={() => navigateTo("/calendar")}>Calendario</a></li>
         </ul>
     </section>
     
@@ -58,9 +58,10 @@
                 display: flex;
                 flex-direction: row;
                 gap: 3rem;
-            } li {
+            } a {
+                font-family: var(--font-title);
                 font-weight: 500; 
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 cursor: pointer;
             }
         }

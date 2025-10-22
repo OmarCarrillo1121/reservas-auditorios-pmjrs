@@ -1,33 +1,40 @@
 <script>
-    
+    export let columns = [];
+    export let rows = [];
 </script>
 
 <!-- AQUI INICIA EL HTML -->
 <table>
     <thead>
-       <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-       </tr>
+        <tr>
+            {#each columns as col}
+                <th>{col.displayName}</th>
+            {/each}
+        </tr>
     </thead>
     <tbody>
-       <tr>
-            <td>1</td>
-            <td>Omar</td>
-            <td>omar@mail.com</td>
-       </tr>
-       <tr>
-            <td>2</td>
-            <td>Ruben</td>
-            <td>rubens@mail.com</td>
-       </tr>
+        {#each rows as row}
+            <tr>
+                <td>{row.id}</td>
+                <td>{row.auditorium}</td>
+                <td>{row.date}</td>
+                <td>{row.startTime}</td>
+                <td>{row.endTime}</td>
+                <td>{row.duration}</td>
+                <td>{row.status}</td>
+                <td>{row.actions}</td>
+            </tr>
+        {/each}
     </tbody>
 </table>
+
 <!-- AQUI TERMINA EL HTML -->
 
 <style>
-    thead {
-        font-size: xx-large;
+    table {
+        width: 100%;
+        thead {
+            text-align: left;
+        }
     }
 </style>
