@@ -1,6 +1,19 @@
 <script>
     import { goto } from "$app/navigation";
-    import auditoriumsList from "$lib/data/auditoriums.js";
+    import { onMount } from "svelte";
+    import { api } from "$lib/services/api.js"
+
+    let listaAuditorios = [];
+
+    onMount(async () => {
+        try {
+            listaAuditorios = await api.get('/auditorios')
+            console.log(listaAuditorios)
+        } catch (err) {
+            console.error('Error cargando auditorios:', err);
+        }
+    });
+
     function navigateTo(route) {
         goto(route);
     }
@@ -20,7 +33,8 @@
         </span>
     </span>
 
-    <button onclick={() => navigateTo("/login")} class="header-button">Iniciar Sesión</button
+    <button onclick={() => navigateTo("/login")} class="header-button"
+        >Iniciar Sesión</button
     >
 </header>
 
@@ -31,16 +45,20 @@
 <section id="events" class="container">
     <h3>Auditorios</h3>
     <div class="cards-container">
-        {#each auditoriumsList as auditorio}
-        <article class=card>{auditorio.name}</article>
-    {/each}
+        {#each listaAuditorios as auditorio}
+            <article class="card">
+                <p>{auditorio.nombre}</p>
+                <p>UBICACION: {auditorio.ubicacion}</p>
+                <p>EDIFICIO: {auditorio.edificio}</p>
+                <p>CAPACIDAD: {auditorio.capacidad}</p>
+            </article>
+        {/each}
     </div>
-    
 </section>
+
 <section id="events" class="container">
     <h3>Croquis de localizacion</h3>
     <div style="height: 800px; border: solid 1px #000"></div>
-    
 </section>
 
 <a href="/login">Iniciar sesión</a>
@@ -140,5 +158,4 @@
         color: var(--color-text-primary);
         padding: 1rem 8rem;
     }
-
 </style>
