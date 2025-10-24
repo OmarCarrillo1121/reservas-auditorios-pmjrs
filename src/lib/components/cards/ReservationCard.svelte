@@ -5,9 +5,24 @@
     <title>ReservationCard Component</title>
   </head>
 
-
-
 <body>
+<header>
+    <span class="header-container">
+        <span class="logos-container">
+            <img class="logos" src="/svg/unam-logo.svg" alt="" />
+            <img class="logos" src="/svg/fca-logo.svg" alt="" />
+        </span>
+
+        <span class="header-title">
+            <!-- <h3>Universidad Nacional Autónoma de México</h3> -->
+            <h3>Facultad de Contaduría y Administración</h3>
+            <h2>Sistema de Información para la Gestión de Auditorios</h2>
+        </span>
+    </span>
+
+    <button onclick={() => navigateTo("/login")} class="header-button">Iniciar Sesión</button
+    >
+</header>
   <section class="reservaciones">
     <div class="encabezado">
       <h2>Mis reservaciones</h2>
