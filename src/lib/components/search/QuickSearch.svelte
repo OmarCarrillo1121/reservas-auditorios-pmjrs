@@ -82,13 +82,11 @@
   display: flex;
   align-items: center;
   min-height: 60px;
-  font-size: 20px; 
   font-family: var(--font-body); 
 }
 
 .celda-unica {
   padding: 10px;
-  font-size: 20px;
   font-family: var(--font-body);
 }
 
@@ -103,7 +101,6 @@ h1 {
   border-radius: 16px;
   padding: 16px 24px;
   margin: 16px;
-  font-size: 20px;
   cursor: pointer;
   min-width: 48px;
   min-height: 48px;
@@ -136,8 +133,7 @@ h1 {
   display: block;
   padding: 13px;
   border-bottom: 1px solid var(--color-primary-25);
-  font-family: var(--font-body);
-  font-size: 20px; 
+  font-family: var(--font-body); 
 }
 
 .links a:hover {
@@ -164,7 +160,6 @@ input[type="time"], input[type="date"] {
   padding: 10px;
   border: 1px solid var(--color-primary-50);
   border-radius: 4px;
-  font-size: 20px; 
   font-family: var(--font-body);
   width: 100%; 
 }
