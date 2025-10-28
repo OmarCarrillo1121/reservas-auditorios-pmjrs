@@ -1,86 +1,138 @@
-<script></script>
+<script>
+    import { goto } from "$app/navigation";
+    function navigateTo(route) {
+        goto(route);
+    }
 
-  <section class="reservaciones">
-    <div class="encabezado">
-      <h2>Mis reservaciones</h2>
-      <button>Ver todas</button>
+      // Aquí puedes agregar la lógica de búsqueda, filtrado u ordenamiento
+  let searchQuery = "";
+  let orderBy = "";
+
+  function handleSearch() {
+    // Lógica de búsqueda
+  }
+
+  function handleOrderChange(event) {
+    orderBy = event.target.value;
+    // Lógica para ordenar
+  }
+
+  function verTodas() {
+    // Acción al hacer clic en "Ver todas"
+  }
+</script>
+
+<!-- AQUI INICIA EL HTML -->
+
+<section class="reservaciones">
+  <div class="header">
+    <h2>Mis reservaciones</h2>
+    <button class="ver-todas" on:click={verTodas}>Ver todas</button>
+  </div>
+
+  <div class="filtros">
+    <div class="buscar">
+      <input 
+        type="text" 
+        placeholder="Buscar" 
+        bind:value={searchQuery}
+      />
+      <button class="btn-buscar" on:click={handleSearch}>🔍</button>
     </div>
 
-<div class="filtros">
-  <input type="text" placeholder="Buscar">
-  <button>🔍</button>
-
-  <label for="ordenar">Ordenar por:</label>
-  <select id="ordenar">
-    <option>Fecha</option>
-    <option>Status</option>
-  </select>
-</div>
+    <div class="ordenar">
+      <label for="orden">Ordenar por:</label>
+      <select id="orden" bind:value={orderBy} on:change={handleOrderChange}>
+        <option value="">Seleccionar</option>
+        <option value="fecha">Fecha</option>
+        <option value="auditorio">Auditorio</option>
+        <option value="status">Status</option>
+      </select>
+    </div>
+  </div>
 </section>
 
-
-    <div class="tarjeta-reservacion">
-      <div class="imagen"></div>
-
-      <div class="detalle">
-        <p><strong>Auditorio “Mtro. José Antonio Echeinque”</strong></p>
-        <p>Fecha del evento: 25/oct/2025</p>
-        <p>Inicio: 11:00 hrs &nbsp;&nbsp; Fin: 13:00 hrs</p>
-        <p>Status: <span class="aprobado">Aprobado</span></p>
-      </div>
-    </div>
-
-    <!-- ====== MAIN SECTION ====== -->
-    <section class="reservaciones-container">
-      <div class="reservaciones-header">
-        <h2>Mis reservaciones</h2>
-        <button class="btn-ver-todas" id="btnVerTodas">Ver todas</button>
-      </div>
-      <hr />
-
-      <div class="reservaciones-filtros">
-        <div class="buscador">
-          <input
-            type="text"
-            id="inputBuscar"
-            placeholder="Buscar"
-            aria-label="Buscar reservación"
-          />
-          <button id="btnBuscar" class="btn-icono">
-            🔍
-          </button>
-        </div>
-
-        <div class="ordenar">
-          <label for="ordenar">Ordenar por:</label>
-          <select id="ordenar">
-            <option value="">Seleccionar</option>
-            <option value="fecha">Fecha</option>
-            <option value="auditorio">Auditorio</option>
-            <option value="status">Estado</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- ===== LISTADO DE RESERVAS ===== -->
-      <div id="listaReservaciones" class="reservaciones-lista">
-        <!-- Ejemplo de una tarjeta -->
-        <div class="reserva-card">
-          <div class="reserva-imagen">
-            <!-- imagen del auditorio -->
-          </div>
+<!-- AQUI TERMINA EL HTML -->
 
 
-          <div class="reserva-acciones">
-            <button class="btn-detalle" onClick={() => verDetalle('auditorio1')}>
-              Ver detalle
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
-  
+<style>
+.reservaciones {
+    font-family: sans-serif;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+  }
 
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .ver-todas {
+    background-color: #b0c4de;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .ver-todas:hover {
+    background-color: #9ab3cf;
+  }
+
+  .filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .buscar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 50%;
+  }
+
+  .buscar input {
+    border: none;
+    padding: 0.5rem;
+    flex: 1;
+    outline: none;
+  }
+
+  .btn-buscar {
+    background-color: white;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    border-left: 1px solid #000;
+  }
+
+  .ordenar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ordenar select {
+    padding: 0.4rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+  }
+</style>
