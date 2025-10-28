@@ -51,15 +51,58 @@
         <p>Status: <span class="aprobado">Aprobado</span></p>
       </div>
 
-      <div class="accion">
-        <button>Ver detalle</button>
+    <!-- ====== MAIN SECTION ====== -->
+    <section class="reservaciones-container">
+      <div class="reservaciones-header">
+        <h2>Mis reservaciones</h2>
+        <button class="btn-ver-todas" id="btnVerTodas">Ver todas</button>
       </div>
-    </div>
-  </section>
-</body>
+      <hr />
+
+      <div class="reservaciones-filtros">
+        <div class="buscador">
+          <input
+            type="text"
+            id="inputBuscar"
+            placeholder="Buscar"
+            aria-label="Buscar reservación"
+          />
+          <button id="btnBuscar" class="btn-icono">
+            🔍
+          </button>
+        </div>
+
+        <div class="ordenar">
+          <label for="ordenar">Ordenar por:</label>
+          <select id="ordenar">
+            <option value="">Seleccionar</option>
+            <option value="fecha">Fecha</option>
+            <option value="auditorio">Auditorio</option>
+            <option value="status">Estado</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ===== LISTADO DE RESERVAS ===== -->
+      <div id="listaReservaciones" class="reservaciones-lista">
+        <!-- Ejemplo de una tarjeta -->
+        <div class="reserva-card">
+          <div class="reserva-imagen">
+            <!-- imagen del auditorio -->
+          </div>
 
 
+          <div class="reserva-acciones">
+            <button class="btn-detalle" on:click={() => verDetalle('auditorio1')}>
+              Ver detalle
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <script src="script.js"></script>
+  </body>
 </html>
 
 
