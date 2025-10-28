@@ -11,7 +11,6 @@
     <br>
     <hr>
     <div class="grid-primera-tabla">
-  
   <div class="celda">Auditorio:</div>
   <div class="celda">
     <div class="desplegable"> 
@@ -36,7 +35,6 @@
     </div>
   </div>
   
-  
   <div class="celda">Fecha del evento:</div>
   <div class="celda">
     <input type="date" value="2025-03-30" min="2021-04-30">
@@ -45,20 +43,21 @@
   <div class="celda">
     <input type="time" value="10:00">
   </div>
-  <div class="celda"></div> <!-- Celda vacía para alineación -->
-  <div class="celda"></div> <!-- Celda vacía para alineación -->
+  <div class="celda"></div>
+  <div class="celda"></div>
 </div>
     <hr>
     <br>
     <hr>
-    <div class="grid-segunda-tabla">
-  <div class="celda-unica">
-    <div class="contenedor-segunda-tabla">
-      <span>Fecha y hora de reservación no disponible</span>
-      <div class="linea-vertical" style="height: 40px;"></div>
-      <div class="desplegable"> 
-        <button class="boton" on:click={() => navigateTo('/user/dashboard')}>Elegir otra fecha</button>
-      </div>
+<div class="grid-primera-tabla">
+  <div class="celda mensaje-combinado" style="grid-column: 1 / span 4;">
+    Fecha y hora de reservación no disponible
+  </div>
+  
+  <div class="celda"></div>
+  <div class="celda">
+    <div class="desplegable"> 
+      <button class="boton" on:click={() => navigateTo('/user/dashboard')}>Elegir otra fecha</button>
     </div>
   </div>
 </div>
@@ -71,23 +70,17 @@
   width: 100%;
 }
 
-.grid-segunda-tabla {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
+.mensaje-combinado {
+  grid-column: 1 / span 4; 
+  justify-content: flex-start;
+  padding-left: 0; 
 }
-
 .celda {
   padding: 10px;
   display: flex;
   align-items: center;
   min-height: 60px;
   font-family: var(--font-body); 
-}
-
-.celda-unica {
-  padding: 10px;
-  font-family: var(--font-body);
 }
 
 h1 {
@@ -149,13 +142,6 @@ h1 {
   height: 80px;
   margin: 0 15px;
 }
-
-.contenedor-segunda-tabla {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
 input[type="time"], input[type="date"] {
   padding: 10px;
   border: 1px solid var(--color-primary-50);
@@ -163,7 +149,6 @@ input[type="time"], input[type="date"] {
   font-family: var(--font-body);
   width: 100%; 
 }
-
 
 @media (max-width: 768px) {
   h1 {
