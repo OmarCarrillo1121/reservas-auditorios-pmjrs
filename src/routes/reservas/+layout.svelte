@@ -1,5 +1,7 @@
 <script>
 	import '../../app.css';
+    import { mdiHomeOutline, mdiTicketOutline, mdiCalendarMonthOutline } from '@mdi/js';
+    import Icon from "$lib/components/icons/Icon.svelte";
 	let { children } = $props();
 </script>
 
@@ -24,9 +26,9 @@
 <nav >
     <section class="container">
         <ul>
-            <li><a href="dashboard" onclick={() => navigateTo("/dashboard")}>Inicio</a></li>
-            <li><a href="reservations" onclick={() => navigateTo("/reservations")}>Reservaciones</a></li>
-            <li><a href="calendar" onclick={() => navigateTo("/calendar")}>Calendario</a></li>
+            <li><Icon path={mdiHomeOutline} size={32} /><a href="dashboard" onclick={() => navigateTo("/dashboard")}>Inicio</a></li>
+            <li><Icon path={mdiTicketOutline} size={32} /><a href="reservations" onclick={() => navigateTo("/reservations")}>Mis reservaciones</a></li>
+            <li><Icon path={mdiCalendarMonthOutline} size={32} /><a href="calendar" onclick={() => navigateTo("/calendar")}>Calendario</a></li>
         </ul>
     </section>
     

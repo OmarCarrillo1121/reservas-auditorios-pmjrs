@@ -38,9 +38,7 @@
     >
 </header>
 
-<section id="slider" class="container slider h-70">
-    <article class="slider-image">Proximos eventos</article>
-</section>
+
 
 <section id="events" class="container">
     <h3>Auditorios</h3>
