@@ -28,41 +28,54 @@
     </header>
 
     <!-- ====== MAIN SECTION ====== -->
-    <main>
-      <section class="consulta-section">
-        <h2>Consulta de fechas</h2>
-        <hr />
+    <section class="reservaciones-container">
+      <div class="reservaciones-header">
+        <h2>Mis reservaciones</h2>
+        <button class="btn-ver-todas" id="btnVerTodas">Ver todas</button>
+      </div>
+      <hr />
 
-        <form id="consulta-form" class="consulta-form">
-          <div class="form-group">
-            <label for="auditorio">Auditorio:</label>
-            <select id="auditorio" name="auditorio">
-              <option value="">Seleccione...</option>
-              <!-- Opciones dinámicas -->
-            </select>
+      <div class="reservaciones-filtros">
+        <div class="buscador">
+          <input
+            type="text"
+            id="inputBuscar"
+            placeholder="Buscar"
+            aria-label="Buscar reservación"
+          />
+          <button id="btnBuscar" class="btn-icono">
+            🔍
+          </button>
+        </div>
 
-            <label for="inicio">Inicio:</label>
-            <input type="date" id="inicio" name="inicio" />
+        <div class="ordenar">
+          <label for="ordenar">Ordenar por:</label>
+          <select id="ordenar">
+            <option value="">Seleccionar</option>
+            <option value="fecha">Fecha</option>
+            <option value="auditorio">Auditorio</option>
+            <option value="status">Estado</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ===== LISTADO DE RESERVAS ===== -->
+      <div id="listaReservaciones" class="reservaciones-lista">
+        <!-- Ejemplo de una tarjeta -->
+        <div class="reserva-card">
+          <div class="reserva-imagen">
+            <!-- imagen del auditorio -->
           </div>
 
-          <div class="form-group">
-            <label for="fecha-evento">Fecha del evento:</label>
-            <div class="fecha-inputs">
-              <input type="text" id="dia" placeholder="DD" maxlength="2" />
-              <input type="text" id="mes" placeholder="MM" maxlength="2" />
-              <input type="text" id="anio" placeholder="AAAA" maxlength="4" />
-            </div>
 
-            <label for="fin">Fin:</label>
-            <input type="date" id="fin" name="fin" />
+          <div class="reserva-acciones">
+            <button class="btn-detalle" on:click={() => verDetalle('auditorio1')}>
+              Ver detalle
+            </button>
           </div>
-
-          <div class="form-buttons">
-            <button type="button" id="btn-consultar">Consultar</button>
-          </div>
-        </form>
-      </section>
-    </main>
+        </div>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
