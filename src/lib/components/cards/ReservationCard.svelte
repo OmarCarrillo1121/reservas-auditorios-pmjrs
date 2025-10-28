@@ -1,28 +1,5 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ReservationCard Component</title>
-  </head>
+<script></script>
 
-<body>
-<header>
-    <span class="header-container">
-        <span class="logos-container">
-            <img class="logos" src="/svg/unam-logo.svg" alt="" />
-            <img class="logos" src="/svg/fca-logo.svg" alt="" />
-        </span>
-
-        <span class="header-title">
-            <!-- <h3>Universidad Nacional Autónoma de México</h3> -->
-            <h3>Facultad de Contaduría y Administración</h3>
-            <h2>Sistema de Información para la Gestión de Auditorios</h2>
-        </span>
-    </span>
-
-    <button onclick={() => navigateTo("/login")} class="header-button">Iniciar Sesión</button
-    >
-</header>
   <section class="reservaciones">
     <div class="encabezado">
       <h2>Mis reservaciones</h2>
@@ -39,6 +16,7 @@
     <option>Status</option>
   </select>
 </div>
+</section>
 
 
     <div class="tarjeta-reservacion">
@@ -50,6 +28,7 @@
         <p>Inicio: 11:00 hrs &nbsp;&nbsp; Fin: 13:00 hrs</p>
         <p>Status: <span class="aprobado">Aprobado</span></p>
       </div>
+    </div>
 
     <!-- ====== MAIN SECTION ====== -->
     <section class="reservaciones-container">
@@ -93,7 +72,7 @@
 
 
           <div class="reserva-acciones">
-            <button class="btn-detalle" on:click={() => verDetalle('auditorio1')}>
+            <button class="btn-detalle" onClick={() => verDetalle('auditorio1')}>
               Ver detalle
             </button>
           </div>
@@ -101,8 +80,7 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+
+  
 
 
