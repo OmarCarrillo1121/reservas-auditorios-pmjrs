@@ -1,8 +1,4 @@
 <script>
-    import { goto } from "$app/navigation";
-    function navigateTo(route) {
-        goto(route);
-    }
 
       // Aquí puedes agregar la lógica de búsqueda, filtrado u ordenamiento
   let searchQuery = "";
@@ -81,17 +77,22 @@
   }
 
   .ver-todas {
-    background-color: #b0c4de;
-    color: #000;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+  background-color: var(--color-primary);  
+  color: white;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin: 16px;
+  cursor: pointer;
+  min-width: 48px;
+  min-height: 48px;
+  text-align: left;
+  border: none;
+  font-family: var(--font-body);
+}
 
-  .ver-todas:hover {
-    background-color: #9ab3cf;
-  }
+.ver-todas:hover {
+  background-color: var(--color-primary-hover);
+}
 
   .filtros {
     display: flex;
