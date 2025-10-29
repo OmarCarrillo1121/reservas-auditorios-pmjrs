@@ -1,65 +1,139 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ReservationCard Component</title>
-  </head>
+<script>
 
-<body>
-<header>
-    <span class="header-container">
-        <span class="logos-container">
-            <img class="logos" src="/svg/unam-logo.svg" alt="" />
-            <img class="logos" src="/svg/fca-logo.svg" alt="" />
-        </span>
+      // Aquí puedes agregar la lógica de búsqueda, filtrado u ordenamiento
+  let searchQuery = "";
+  let orderBy = "";
 
-        <span class="header-title">
-            <!-- <h3>Universidad Nacional Autónoma de México</h3> -->
-            <h3>Facultad de Contaduría y Administración</h3>
-            <h2>Sistema de Información para la Gestión de Auditorios</h2>
-        </span>
-    </span>
+  function handleSearch() {
+    // Lógica de búsqueda
+  }
 
-    <button onclick={() => navigateTo("/login")} class="header-button">Iniciar Sesión</button
-    >
-</header>
-  <section class="reservaciones">
-    <div class="encabezado">
-      <h2>Mis reservaciones</h2>
-      <button>Ver todas</button>
+  function handleOrderChange(event) {
+    orderBy = event.target.value;
+    // Lógica para ordenar
+  }
+
+  function verTodas() {
+    // Acción al hacer clic en "Ver todas"
+  }
+</script>
+
+<!-- AQUI INICIA EL HTML -->
+
+<section class="reservaciones">
+  <div class="header">
+    <h2>Mis reservaciones</h2>
+    <button class="ver-todas" on:click={verTodas}>Ver todas</button>
+  </div>
+
+  <div class="filtros">
+    <div class="buscar">
+      <input 
+        type="text" 
+        placeholder="Buscar" 
+        bind:value={searchQuery}
+      />
+      <button class="btn-buscar" on:click={handleSearch}>🔍</button>
     </div>
 
-<div class="filtros">
-  <input type="text" placeholder="Buscar">
-  <button>🔍</button>
-
-  <label for="ordenar">Ordenar por:</label>
-  <select id="ordenar">
-    <option>Fecha</option>
-    <option>Status</option>
-  </select>
-</div>
-
-
-    <div class="tarjeta-reservacion">
-      <div class="imagen"></div>
-
-      <div class="detalle">
-        <p><strong>Auditorio “Mtro. José Antonio Echeinque”</strong></p>
-        <p>Fecha del evento: 25/oct/2025</p>
-        <p>Inicio: 11:00 hrs &nbsp;&nbsp; Fin: 13:00 hrs</p>
-        <p>Status: <span class="aprobado">Aprobado</span></p>
-      </div>
-
-      <div class="accion">
-        <button>Ver detalle</button>
-      </div>
+    <div class="ordenar">
+      <label for="orden">Ordenar por:</label>
+      <select id="orden" bind:value={orderBy} on:change={handleOrderChange}>
+        <option value="">Seleccionar</option>
+        <option value="fecha">Fecha</option>
+        <option value="auditorio">Auditorio</option>
+        <option value="status">Status</option>
+      </select>
     </div>
-  </section>
-</body>
+  </div>
+</section>
+
+<!-- AQUI TERMINA EL HTML -->
 
 
 
-</html>
 
+<style>
+.reservaciones {
+    font-family: sans-serif;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .ver-todas {
+  background-color: var(--color-primary);  
+  color: white;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin: 16px;
+  cursor: pointer;
+  min-width: 48px;
+  min-height: 48px;
+  text-align: left;
+  border: none;
+  font-family: var(--font-body);
+}
+
+.ver-todas:hover {
+  background-color: var(--color-primary-hover);
+}
+
+  .filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .buscar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 50%;
+  }
+
+  .buscar input {
+    border: none;
+    padding: 0.5rem;
+    flex: 1;
+    outline: none;
+  }
+
+  .btn-buscar {
+    background-color: white;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    border-left: 1px solid #000;
+  }
+
+  .ordenar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ordenar select {
+    padding: 0.4rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+  }
+</style>
