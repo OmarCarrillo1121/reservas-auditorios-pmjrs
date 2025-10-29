@@ -9,7 +9,7 @@
 <!-- <div class="imagen-container">
         <img src="imagen" alt=''/>
     </div> -->
-<div class="componente-container">
+<!-- <div class="componente-container">
     <h4>Iniciar sesión</h4>
     <form class="formulario-container">
         <label for="Usuario">Usuario</label>
@@ -19,7 +19,31 @@
         <button onclick={() => navigateTo("/reservas")}>Ingresar</button>
         <label for="">Olvidé mi contraseña</label>
     </form>
-</div>
+</div> -->
+<div class="contenedor">
+    <div class="formulario-container">
+     <form action="#"> 
+        <br>
+        <br>
+        <br>
+       <h4>Iniciar sesión</h4>
+       <label for="fname">Usuario</label>
+       <br>
+     	 <input type="text" value="">
+       <br>
+       <label for="password">Contraseña</label>
+       <br>
+       <input id="password" type="text" value="">
+       <br>
+       <br>
+       <button>Ingresar</button>
+       <br>
+       <br>
+       <br>
+       <p>Olvidé mi contraseña</p>
+     </form>
+    </div>
+</div>   
 
 <!-- AQUI TERMINA EL HTML -->
 
@@ -40,7 +64,7 @@
         height: auto;
     } */
 
-    .componente-container {
+    /* .componente-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -56,7 +80,24 @@
         justify-content: center;
         align-items: center;
         border: 2px solid #ccc;
-    }
+    } */
+
+    .contenedor { 
+      display: flex;
+      justify-content: center;
+      gap: 300px;
+      height: 600px;
+      align-items: center;
+      border: 3px solid #000;
+     }
+
+     .formulario-container {
+      width: 100%;
+      text-align: center;
+      border: 2px solid #ccc;
+      height: 400px;
+      margin: 100px 0px;
+     }
 
     /*.cajitaIS {
      position:absolute;

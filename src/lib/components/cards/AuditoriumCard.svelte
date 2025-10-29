@@ -1,0 +1,51 @@
+<script>
+    export let auditorioData = {};
+</script>
+
+<!-- AQUI INICIA EL HTML -->
+<section class="card-container">
+    <div class="card-header">IMAGEN</div>
+    <div class="card-body">
+        <p>{auditorioData.name}</p>
+        <p>{auditorioData.nombre}</p>
+        <p>UBICACION: {auditorioData.ubicacion}</p>
+        <p>EDIFICIO: {auditorioData.edificio}</p>
+        <p>CAPACIDAD: {auditorioData.capacidad}</p>
+    </div>
+    <div class="card-footer">IMAGEN</div>
+</section>
+<!-- AQUI TERMINA EL HTML -->
+
+<style>
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-bg-cards);
+        color: var(--color-text-primary);
+        max-width: 200px;
+        border: solid 1px #000;
+        border-radius: 2rem;
+    }
+
+    .card-header {
+        border: solid 1px black;
+        height: 12rem;
+        width: 100%;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+    }
+
+    .card-body {
+        border: solid 1px black;
+        height: 11rem;
+        width: 100%;
+    }
+
+    .card-footer {
+        border: solid 1px black;
+        height: 4rem;
+        width: 100%;
+    }
+</style>

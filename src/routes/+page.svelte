@@ -1,16 +1,18 @@
 <script>
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
-    import { api } from "$lib/services/api.js"
+    import { api } from "$lib/services/api.js";
+    import AuditoriumCard from "$lib/components/cards/AuditoriumCard.svelte";
+    import Footer from "$lib/components/footer/Footer.svelte";
 
     let listaAuditorios = [];
 
     onMount(async () => {
         try {
-            listaAuditorios = await api.get('/auditorios')
-            console.log(listaAuditorios)
+            listaAuditorios = await api.get("/auditorios");
+            console.log(listaAuditorios);
         } catch (err) {
-            console.error('Error cargando auditorios:', err);
+            console.error("Error cargando auditorios:", err);
         }
     });
 
@@ -38,18 +40,16 @@
     >
 </header>
 
-
+<section class="container">
+    PROXIMOS EVENTOS
+</section>
 
 <section id="events" class="container">
     <h3>Auditorios</h3>
+
     <div class="cards-container">
-        {#each listaAuditorios as auditorio}
-            <article class="card">
-                <p>{auditorio.nombre}</p>
-                <p>UBICACION: {auditorio.ubicacion}</p>
-                <p>EDIFICIO: {auditorio.edificio}</p>
-                <p>CAPACIDAD: {auditorio.capacidad}</p>
-            </article>
+        {#each listaAuditorios as auditorioData}
+            <AuditoriumCard {auditorioData} />
         {/each}
     </div>
 </section>
@@ -59,16 +59,28 @@
     <div style="height: 800px; border: solid 1px #000"></div>
 </section>
 
-<a href="/login">Iniciar sesión</a>
-<a href="user/reservations">Reservaciones</a>
-<a href="user/search">Buscar</a>
-<a href="user/dashboard">Administrador</a>
-
 <nav></nav>
 <main></main>
 <footer>
-    <p>Hackaton "40 años de la Licenciatura en Informática"</p>
-    <p>Equipo Pumitas Juniors</p>
+    <Footer/>
+    <!-- <div>
+        <p>Universidad Nacional Autónoma de México</p>
+        <p>Facultad de Contaduría y Administración</p>
+        <p>Licenciatura en Informática</p>
+        <p>Hackaton "40 años de la Licenciatura en Informática"</p>
+    </div>
+    <div>
+        <p>Equipo Pumitas Juniors</p>
+    </div>
+    <div>
+        <p>Nombre del integrante</p>
+        <p>Estudiante de tercer semestre de la carrera de Informática</p>
+        <p>Colaboración principal:</p>
+        <p>Contacto:</p>
+    </div>
+    <div>
+        <p>Hecho en México. D.R. © 2025</p>
+    </div> -->
 </footer>
 
 <style>
@@ -134,19 +146,6 @@
         color: var(--color-text-primary);
         padding: 1rem 8rem;
     }
-
-    .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--color-bg-cards);
-        color: var(--color-text-primary);
-        padding: 1rem 8rem;
-        max-width: 200px;
-        border: solid 1px #000;
-    }
-
     .cards-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
