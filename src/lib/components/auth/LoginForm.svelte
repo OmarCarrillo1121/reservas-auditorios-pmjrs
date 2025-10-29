@@ -7,7 +7,6 @@
     }
 </script>
  
-<body >
   <head>
   <title>LoginForm works!</title>
     <style type="text/css">
@@ -18,13 +17,7 @@
       gap: 300px;
       height: 600px;
       align-items: center;
-      border: 3px solid #000;   
-     }
-
-     .imagen-container img {
-      display: flex;
-      max-width: 100%;
-      height: auto;
+      border: 3px solid #000;
      }
 
      .formulario-container {
@@ -33,24 +26,12 @@
       border: 2px solid #ccc;
       height: 400px;
       margin: 100px 0px;
-
      }
-
-     /*.cajitaIS {
-     position:absolute;
-     top:0px;
-     bottom:0;
-     right:0;
-     left:0;
-     border:3px solid #ccc;*/
   
     </style>
  </head>
 <div class="contenedor">
-  <div class="imagen-container">
-       <img src="imagen">
-   </div>
-   <div class="formulario-container">
+    <div class="formulario-container">
      <form action="#"> 
        <form action="/action_page.php">  
         <br>
@@ -75,6 +56,4 @@
      </form>
     </div>
 </div>           
-
-  </body>
 </html>
