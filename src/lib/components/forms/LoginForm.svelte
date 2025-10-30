@@ -20,30 +20,27 @@
         <label for="">Olvidé mi contraseña</label>
     </form>
 </div> -->
-<div class="contenedor">
+
     <div class="formulario-container">
      <form action="#"> 
-        <br>
-        <br>
-        <br>
+        
        <h4>Iniciar sesión</h4>
-       <label for="fname">Usuario</label>
+       <div class="cajita">
+       <label for="Usuario">Usuario</label>
        <br>
-     	 <input type="text" value="">
+     	 <input type="usuario" class="cajita-input" placeholder="Ingrese Usuario" id="Usuario">
+       </div>
+       <div class="cajita">
+       <label for="Contraseña">Contraseña</label>
        <br>
-       <label for="password">Contraseña</label>
-       <br>
-       <input id="password" type="text" value="">
-       <br>
+       <input type="password" class="cajita-input" placeholder="Ingrese Contraseña" id="Contraseña">
+       </div>
        <br>
        <button>Ingresar</button>
        <br>
-       <br>
-       <br>
        <p>Olvidé mi contraseña</p>
      </form>
-    </div>
-</div>   
+    </div>  
 
 <!-- AQUI TERMINA EL HTML -->
 
@@ -82,28 +79,41 @@
         border: 2px solid #ccc;
     } */
 
-    .contenedor { 
+    /*.contenedor { 
       display: flex;
       justify-content: center;
       gap: 300px;
-      height: 600px;
+      height: 500px;
       align-items: center;
       border: 3px solid #000;
-     }
+     } */
 
      .formulario-container {
-      width: 100%;
       text-align: center;
-      border: 2px solid #ccc;
-      height: 400px;
-      margin: 100px 0px;
+      width: 70%;
+      margin: 30px auto;
+      margin-top: 50px;
+      padding: 5px;
+      height: 500px;
      }
 
-    /*.cajitaIS {
-     position:absolute;
-     top:0px;
-     bottom:0;
-     right:0;
-     left:0;
-     border:3px solid #ccc;*/
+     .cajita{
+     flex-basis: 80px;
+     margin: 5px 2px;
+     padding: 7px;
+     }
+
+     .cajita-input{
+       background-color: rgb(219, 214, 214); 
+       padding: 7px;
+     }
+    button {
+    background-color: rgb(130, 130, 218);
+    padding: 7px;
+    width: 80%;
+
+    }
+
+    
+     
 </style>
