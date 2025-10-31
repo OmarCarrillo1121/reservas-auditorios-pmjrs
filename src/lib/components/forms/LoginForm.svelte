@@ -111,7 +111,7 @@
     background-color: rgb(130, 130, 218);
     padding: 7px;
     width: 80%;
-
+    margin: 5px;
     }
 
     
