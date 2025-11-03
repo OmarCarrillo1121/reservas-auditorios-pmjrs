@@ -1,47 +1,39 @@
 <script>
-    import { goto } from "$app/navigation";
     import { onMount } from "svelte";
-    import { api } from "$lib/services/api.js";
+    import { api } from "$lib/services/api.service.js";
+    import { getAuditorios } from "$lib/services/auditorios.service";
     import AuditoriumCard from "$lib/components/cards/AuditoriumCard.svelte";
+    // import Carousel from "$lib/components/carousel/Carousel.svelte";
     import Footer from "$lib/components/footer/Footer.svelte";
+    import { Carousel, Controls, CarouselIndicators } from "flowbite-svelte";
+    import { images } from "$lib/data/carousel";
+    import { navigateTo } from "$lib/utils/navigate.utils";
+    import MainHeader from "$lib/components/header/MainHeader.svelte";
+    import Navbar from "$lib/components/navbar/Navbar.svelte";
 
     let listaAuditorios = [];
 
     onMount(async () => {
         try {
-            listaAuditorios = await api.get("/auditorios");
+            listaAuditorios = await getAuditorios();
             console.log(listaAuditorios);
         } catch (err) {
-            console.error("Error cargando auditorios:", err);
+            console.warn(err);
         }
     });
 
-    function navigateTo(route) {
-        goto(route);
-    }
+
 </script>
 
-<header>
-    <span class="header-container">
-        <span class="logos-container">
-            <img class="logos" src="/svg/unam-logo.svg" alt="" />
-            <img class="logos" src="/svg/fca-logo.svg" alt="" />
-        </span>
-
-        <span class="header-title">
-            <!-- <h3>Universidad Nacional Autónoma de México</h3> -->
-            <h3>Facultad de Contaduría y Administración</h3>
-            <h2>Sistema de Información para la Gestión de Auditorios</h2>
-        </span>
-    </span>
-
-    <button onclick={() => navigateTo("/login")} class="header-button"
-        >Iniciar Sesión</button
-    >
-</header>
+<MainHeader/>
+<Navbar></Navbar>
 
 <section class="container">
-    PROXIMOS EVENTOS
+    <h2>PROXIMOS EVENTOS</h2>
+    <Carousel {images} duration={10000}>
+        <Controls />
+        <CarouselIndicators />
+    </Carousel>
 </section>
 
 <section id="events" class="container">
@@ -62,7 +54,7 @@
 <nav></nav>
 <main></main>
 <footer>
-    <Footer/>
+    <Footer />
     <!-- <div>
         <p>Universidad Nacional Autónoma de México</p>
         <p>Facultad de Contaduría y Administración</p>
@@ -84,16 +76,6 @@
 </footer>
 
 <style>
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--color-primary);
-        font-family: var(--font-title);
-        padding: 1rem 8rem;
-    }
-
     nav {
         display: flex;
         flex-direction: row;
@@ -101,40 +83,6 @@
         align-items: center;
         background-color: var(--color-primary-50);
         height: 2rem;
-    }
-
-    .header-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .header-title {
-        color: var(--color-text-primary);
-    }
-
-    .logos-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .logos {
-        filter: invert(1);
-        width: 4rem;
-        height: 4rem;
-    }
-
-    .header-button {
-        background-color: var(--color-accent);
-        color: var(--color-text-primary);
-        border-radius: 0.5rem;
-        padding: 0.75rem 2rem;
-        cursor: pointer;
     }
 
     footer {

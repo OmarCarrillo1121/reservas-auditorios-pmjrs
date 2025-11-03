@@ -12,7 +12,9 @@
         <p>EDIFICIO: {auditorioData.edificio}</p>
         <p>CAPACIDAD: {auditorioData.capacidad}</p>
     </div>
-    <div class="card-footer">IMAGEN</div>
+    <div class="card-footer">
+        <button>Ver ubicacion</button>
+    </div>
 </section>
 <!-- AQUI TERMINA EL HTML -->
 
@@ -26,15 +28,15 @@
         color: var(--color-text-primary);
         max-width: 200px;
         border: solid 1px #000;
-        border-radius: 2rem;
+        border-radius: 1rem;
     }
 
     .card-header {
         border: solid 1px black;
         height: 12rem;
         width: 100%;
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
     }
 
     .card-body {
@@ -47,5 +49,9 @@
         border: solid 1px black;
         height: 4rem;
         width: 100%;
+        button {
+            border: solid 1px #000;
+            border-radius: 1rem;
+        }
     }
 </style>

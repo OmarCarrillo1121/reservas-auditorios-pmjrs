@@ -1,8 +1,6 @@
 <script>
-    import { goto } from "$app/navigation";
-    function navigateTo(route) {
-        goto(route);
-    }
+    import { navigateTo } from "$lib/utils/navigate.utils";
+    
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -36,7 +34,7 @@
        <input type="password" class="cajita-input" placeholder="Ingrese Contraseña" id="Contraseña">
        </div>
        <br>
-       <button>Ingresar</button>
+       <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button>
        <br>
        <p>Olvidé mi contraseña</p>
      </form>

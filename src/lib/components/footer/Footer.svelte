@@ -3,6 +3,7 @@
     function navigateTo(route) {
         goto(route);
     }
+
 </script>
 <!-- AQUI INICIA EL HTML -->
 <span>ReservationCard works!</span>
