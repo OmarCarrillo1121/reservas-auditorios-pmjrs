@@ -1,13 +1,47 @@
 <script>
     import { goto } from "$app/navigation";
+    import IntegrantesCard from "$lib/components/cards/IntegrantesCard.svelte";
+    const integrantes = [
+        {
+            nombre: "Rosario",
+            descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
+            imagen: "foto1.jpg",
+            linkedin: "#",
+            github: "#",
+            email: "#"
+        },
+        {
+            nombre: "Rocio",
+            descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
+            imagen: "foto4.jpg",
+            linkedin: "#",
+            github: "#",
+            email: "#"
+        },
+        {
+            nombre: "Ruben Omar",
+            descripcion: "Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.",
+            imagen: "foto3.jpg",
+            linkedin: "#",
+            github: "#",
+            email: "#"
+        },
+        {
+            nombre: "Antonio",
+            descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
+            imagen: "foto2.jpg",
+            linkedin: "#",
+            github: "#",
+            email: "#"
+        }
+    ];
+
     function navigateTo(route) {
         goto(route);
     }
-
 </script>
-<!-- AQUI INICIA EL HTML -->
-<span>ReservationCard works!</span>
 
+<!-- AQUI INICIA EL HTML -->
 <div class="full-container f-col team-page">
     
     <div class="contenedor1 container f-row f-center-center">
@@ -17,10 +51,11 @@
     </div>
     
     <div class="unam-info f-col f-center-center">
-    <h4>Universidad Nacional Autónoma de México</h4>
-    <h4>Facultad de Contaduría y Administración</h4>
-    <h3 class="hackathon-title">Hackatón "40 años de la Licenciatura en Informática"</h3>
-</div>
+        <h4>Universidad Nacional Autónoma de México</h4>
+        <h4>Facultad de Contaduría y Administración</h4>
+        <h3 class="hackathon-title">Hackatón "40 años de la Licenciatura en Informática"</h3>
+    </div>
+    
     
     <div class="contenedor2 container f-col team-intro">
         <h1>Equipo Pumitas Juniors</h1>
@@ -29,78 +64,31 @@
             apasionados por la tecnología y el trabajo colaborativo. Buscamos generar soluciones creativas, innovadoras y de alto nivel.
         </p>
     </div>
-    
+
     <h2 class="Centrado">Integrantes</h2>
     
-    <table class="tabla-integrantes">
-        <thead>
-        <tr>
-            <td class="integrante">
-                <!-- <img src="foto1.jpg" alt="Foto Rosario"> -->
-                <h3>Rosario</h3>
-                <p class="member-desc">Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.</p>
-                <div class="f-row social-icons">
-                    <span class="icon" title="LinkedIn">💼</span>
-                    <span class="icon" title="GitHub">⚡</span>
-                    <span class="icon" title="Email">📧</span>
-                </div>
-            </td>
-            <td class="integrante">
-                <!-- <img src="foto4.jpg" alt="Foto Rocio"> -->
-                <h3>Rocio</h3>
-                <p class="member-desc">Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.</p>
-                <div class="f-row social-icons">
-                    <span class="icon" title="LinkedIn">💼</span>
-                    <span class="icon" title="GitHub">⚡</span>
-                    <span class="icon" title="Email">📧</span>
-                </div>
-            </td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="integrante">
-                <!-- <img src="foto3.jpg" alt="Foto Omar"> -->
-                <h3>Ruben Omar</h3>
-                <p class="member-desc">Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.</p>
-                <div class="f-row social-icons">
-                    <span class="icon" title="LinkedIn">💼</span>
-                    <span class="icon" title="GitHub">⚡</span>
-                    <span class="icon" title="Email">📧</span>
-                </div>
-            </td>
-            <td class="integrante">
-                <!-- <img src="foto2.jpg" alt="Foto Antonio"> -->
-                <h3>Antonio</h3>
-                <p class="member-desc">Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.</p>
-                <div class="f-row social-icons">
-                    <span class="icon" title="LinkedIn">💼</span>
-                    <span class="icon" title="GitHub">⚡</span>
-                    <span class="icon" title="Email">📧</span>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="integrantes-grid">
+        {#each integrantes as integrante}
+            <IntegranteCard {integrante} />
+        {/each}
+    </div>
 
     <footer>
         2025. Hecho en México. Bajo la licencia de Creative Commons Universal 1.0
     </footer>
 </div>
-
+<!-- AQUI TERMINA EL HTML -->
 <style>
     .team-page {
-        background-color: var(--color-primario);
+        background-color: var(--color-primary);
         color: white;
         padding: 2rem var(--container-padding);
-        font-family: var(--fuente-cuerpo);
         min-height: 100vh;
     }
 
     .Centrado {
         text-align: center;
         color: white;
-        font-family: var(--fuente-titulo);
         margin: 2rem 0;
     }
 
@@ -109,22 +97,17 @@
         text-align: center;
         gap: 1rem;
         margin-bottom: 2rem;
-        font-family: var(--fuente-titulo);
     }
 
     .team-intro h1 {
         color: white;
-        font-weight: 500;
-        font-size: 1.8rem;
         margin: 0;
     }
 
     .description-text {
         max-width: 800px;
-        font-size: 1rem;
         line-height: 1.4;
         color: #f0f0f0;
-        font-family: var(--fuente-cuerpo);
         padding: 0 1rem;
         margin: 0;
     }
@@ -149,81 +132,37 @@
         object-fit: contain;
     }
 
-    .tabla-integrantes {
+    .integrantes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 2rem;
         width: 90%;
         margin: 0 auto;
-        border-collapse: collapse;
-    }
-    
-    .integrante {
-        border: 1px solid var(--color-acento);
-        padding: 2rem;
-        text-align: center;
-        vertical-align: top;
-        background-color: var(--color-fondo-tarjetas);
-        color: var(--color-texto-primario);
-    }
-    
-    .integrante img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 1rem;
-        border: 3px solid var(--color-acento);
-    }
-    
-    .integrante h3 {
-        margin: 1rem 0;
-        color: var(--color-primario);
-        font-family: var(--fuente-titulo);
-        font-size: 1.2rem;
-    }
-    
-    .member-desc {
-        font-size: 0.9rem;
-        margin: 1rem 0;
-        line-height: 1.4;
-        color: var(--color-texto-primario);
-        font-family: var(--fuente-cuerpo);
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .icon {
-        color: var(--color-primario);
-        font-size: 1.2rem;
+        padding: 1rem 0;
     }
 
     footer {
         margin-top: 3rem;
         text-align: center;
         font-size: 0.75rem;
-        color: var(--color-primario-75);
-        font-family: var(--fuente-cuerpo);
+        color: var(--color-primary-75);
     }
     
     .unam-info {
-    font-family: var(--fuente-titulo);
-    text-align: center;
-    margin-bottom: 2rem;
-}
+        text-align: center;
+        margin-bottom: 2rem;
+    }
 
-.unam-info h4 {
-    margin: 0;
-    color: white;
-}
+    .unam-info h4 {
+        margin: 0;
+        color: white;
+    }
 
-.hackathon-title {
-    color: var(--color-acento);
-    margin: 0.5rem 0;
-    font-family: var(--fuente-titulo);
-}
+    .hackathon-title {
+        color: var(--color-accent);
+        margin: 0.5rem 0;
+    }
 
     @media (max-width: 768px) {
         .contenedor1 {
@@ -236,12 +175,11 @@
             height: 120px;
         }
         
-        .tabla-integrantes {
+        .integrantes-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
             width: 100%;
-        }
-        
-        .integrante {
-            padding: 1rem;
+            gap: 1.5rem;
         }
     }
 </style>
