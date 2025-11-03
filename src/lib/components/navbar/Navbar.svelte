@@ -10,7 +10,9 @@
             {#each navbarItems as item}
             <li>
                 <Icon path={item.icon} size={item.iconSize ? item.iconSize : 32} />
-                <a href={item.href} onclick={() => navigateTo(item.href)}>{item.label}</a>
+                <a href={item.href} onclick={() => navigateTo(item.href)}>
+                    <h4>{item.label}</h4>
+                </a>
             </li>
             {/each}
         </ul>
@@ -19,13 +21,15 @@
 
 <style>
     nav {
-        background-color: aquamarine;
+        background-color: var(--color-primario-75);
+    }
         section {
             padding: 1rem;
             display: flex;
             flex-direction: row;
             justify-content: center;
             gap: 1rem;
+        }
             ul {
                 display: flex;
                 flex-direction: row;
@@ -33,10 +37,10 @@
             }
             a {
                 font-family: var(--font-title);
+                color: var(--color-fondo);
                 font-weight: 500;
-                font-size: 1.1rem;
+                font-size: 1rem;
                 cursor: pointer;
             }
-        }
-    }
+    
 </style>

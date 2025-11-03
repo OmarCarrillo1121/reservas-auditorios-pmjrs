@@ -1,7 +1,7 @@
 <script>
   export let path;
   export let size = 32;
-  export let color = "currentColor";
+  export let color = "var(--color-fondo)";
 </script>
 
 <svg

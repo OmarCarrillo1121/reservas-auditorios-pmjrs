@@ -90,17 +90,17 @@
 
 <style>
     .team-page {
-        background-color: var(--color-primary);
+        background-color: var(--color-primario);
         color: white;
         padding: 2rem var(--container-padding);
-        font-family: var(--font-body);
+        font-family: var(--fuente-cuerpo);
         min-height: 100vh;
     }
 
     .Centrado {
         text-align: center;
         color: white;
-        font-family: var(--font-title);
+        font-family: var(--fuente-titulo);
         margin: 2rem 0;
     }
 
@@ -109,7 +109,7 @@
         text-align: center;
         gap: 1rem;
         margin-bottom: 2rem;
-        font-family: var(--font-title);
+        font-family: var(--fuente-titulo);
     }
 
     .team-intro h1 {
@@ -124,7 +124,7 @@
         font-size: 1rem;
         line-height: 1.4;
         color: #f0f0f0;
-        font-family: var(--font-body);
+        font-family: var(--fuente-cuerpo);
         padding: 0 1rem;
         margin: 0;
     }
@@ -156,12 +156,12 @@
     }
     
     .integrante {
-        border: 1px solid var(--color-accent);
+        border: 1px solid var(--color-acento);
         padding: 2rem;
         text-align: center;
         vertical-align: top;
-        background-color: var(--color-bg-cards);
-        color: var(--color-text-primary);
+        background-color: var(--color-fondo-tarjetas);
+        color: var(--color-texto-primario);
     }
     
     .integrante img {
@@ -170,13 +170,13 @@
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 1rem;
-        border: 3px solid var(--color-accent);
+        border: 3px solid var(--color-acento);
     }
     
     .integrante h3 {
         margin: 1rem 0;
-        color: var(--color-primary);
-        font-family: var(--font-title);
+        color: var(--color-primario);
+        font-family: var(--fuente-titulo);
         font-size: 1.2rem;
     }
     
@@ -184,8 +184,8 @@
         font-size: 0.9rem;
         margin: 1rem 0;
         line-height: 1.4;
-        color: var(--color-text-primary);
-        font-family: var(--font-body);
+        color: var(--color-texto-primario);
+        font-family: var(--fuente-cuerpo);
     }
 
     .social-icons {
@@ -196,7 +196,7 @@
     }
 
     .icon {
-        color: var(--color-primary);
+        color: var(--color-primario);
         font-size: 1.2rem;
     }
 
@@ -204,12 +204,12 @@
         margin-top: 3rem;
         text-align: center;
         font-size: 0.75rem;
-        color: var(--color-primary-75);
-        font-family: var(--font-body);
+        color: var(--color-primario-75);
+        font-family: var(--fuente-cuerpo);
     }
     
     .unam-info {
-    font-family: var(--font-title);
+    font-family: var(--fuente-titulo);
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -220,9 +220,9 @@
 }
 
 .hackathon-title {
-    color: var(--color-accent);
+    color: var(--color-acento);
     margin: 0.5rem 0;
-    font-family: var(--font-title);
+    font-family: var(--fuente-titulo);
 }
 
     @media (max-width: 768px) {

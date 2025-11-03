@@ -1,7 +1,7 @@
 <script>
     import MainHeader from '$lib/components/header/MainHeader.svelte';
     import Navbar from '$lib/components/navbar/Navbar.svelte';
-    import { mdiHomeOutline, mdiTicketOutline, mdiCalendarMonthOutline } from '@mdi/js';
+    import { mdiHomeOutline, mdiTicketOutline, mdiCalendarMonthOutline, mdiPlus } from '@mdi/js';
 	let { children } = $props();
     const navigationItems = [
         {
@@ -21,6 +21,12 @@
             icon: mdiCalendarMonthOutline,
             iconSize: 32,
             href: '/reservas/calendario'
+        },
+        {
+            label: 'Crear reservacion',
+            icon: mdiPlus,
+            iconSize: 32,
+            href: '/reservas/crear-reservacion'
         }
     ]
 </script>
