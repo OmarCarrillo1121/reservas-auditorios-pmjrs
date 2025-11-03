@@ -1,6 +1,6 @@
 <script>
   export let path;
-  export let size = 24;
+  export let size = 32;
   export let color = "currentColor";
 </script>
 

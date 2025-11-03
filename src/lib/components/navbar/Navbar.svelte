@@ -1,31 +1,18 @@
 <script>
-    import { mdiHomeOutline, mdiTicketOutline, mdiCalendarMonthOutline } from '@mdi/js';
     import Icon from "$lib/components/icons/Icon.svelte";
     import { navigateTo } from "$lib/utils/navigate.utils";
+    export let navbarItems = []
 </script>
 
 <nav>
     <section class="container">
         <ul>
+            {#each navbarItems as item}
             <li>
-                <Icon path={mdiHomeOutline} size={32} /><a
-                    href="dashboard"
-                    onclick={() => navigateTo("/dashboard")}>Inicio</a
-                >
+                <Icon path={item.icon} size={item.iconSize ? item.iconSize : 32} />
+                <a href={item.href} onclick={() => navigateTo(item.href)}>{item.label}</a>
             </li>
-            <li>
-                <Icon path={mdiTicketOutline} size={32} /><a
-                    href="reservations"
-                    onclick={() => navigateTo("/reservations")}
-                    >Mis reservaciones</a
-                >
-            </li>
-            <li>
-                <Icon path={mdiCalendarMonthOutline} size={32} /><a
-                    href="calendar"
-                    onclick={() => navigateTo("/calendar")}>Calendario</a
-                >
-            </li>
+            {/each}
         </ul>
     </section>
 </nav>
