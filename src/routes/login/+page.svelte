@@ -11,8 +11,8 @@
 
         <span class="header-title">
             <!-- <h3>Universidad Nacional Autónoma de México</h3> -->
-            <h3>Facultad de Contaduría y Administración</h3>
-            <h2>Sistema de Información para la Gestión de Auditorios</h2>
+            <h4>Facultad de Contaduría y Administración</h4>
+            <h3>Sistema de Información<br>para la Gestión de Auditorios</h3>
         </span>
     </div>
     <div class="content-right">
@@ -40,14 +40,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--color-primary);
+        background-color: var(--color-primario);
         width: 35%;
         height: 80vh;
         gap: 2rem;
     }
 
     .content-right {
-        background-color: var(--color-bg);
+        background-color: var(--color-fondo-tarjeta);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -75,7 +75,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: var(--color-text-primary);
+        color: var(--color-fondo);
     }
 
 </style>

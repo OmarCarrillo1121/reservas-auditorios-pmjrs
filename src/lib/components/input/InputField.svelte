@@ -18,7 +18,7 @@ HIDDEN: hidden
     <label for={id}>
         {label}
     </label>
-    <input {id} {type} {placeholder} bind:value/>
+    <input id={id} name={id} type={type} placeholder={placeholder} bind:value/>
 </div>
 
 <style>

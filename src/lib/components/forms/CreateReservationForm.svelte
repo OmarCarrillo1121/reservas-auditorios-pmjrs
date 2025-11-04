@@ -92,50 +92,5 @@
 </style> -->
 
 
-<script>
-//   import AuditoriumSelect from './AuditoriumSelect.svelte';
-  import HorizontalCalendar from '../booking/HorizontalCalendar.svelte';
-  import TimeChips from '../booking/TimeChips.svelte';
 
-  let auditoriums = [];
-  let selectedAuditorium = '';
-  let selectedDate = null;
-  let availableTimes = ['07:00','08:00','09:00'];
-  let selectedTimes = [];
 
-//   async function fetchAvailableTimes(auditorio, date) {
-//     if (!auditorio || !date) return [];
-//     const formattedDate = date.toISOString().split('T')[0];
-//     const res = await fetch(`/api/horarios?auditorio=${auditorio}&fecha=${formattedDate}`);
-//     return await res.json();
-//   }
-
-//   $: if (selectedAuditorium && selectedDate) {
-//     fetchAvailableTimes(selectedAuditorium, selectedDate).then(data => {
-//       availableTimes = data;
-//       selectedTimes = [];
-//     });
-//   }
-</script>
-
-<div class="flex flex-col gap-4">
-  <!-- <AuditoriumSelect
-    {auditoriums}
-    bind:selected={selectedAuditorium}
-    on:change={(e) => (selectedAuditorium = e.detail)} /> -->
-
-  <HorizontalCalendar
-    {selectedDate}
-    on:select={(e) => (selectedDate = e.detail)} />
-
-  <TimeChips
-    {availableTimes}
-    bind:selectedTimes
-    on:update={(e) => (selectedTimes = e.detail)} />
-
-  <button
-    class="bg-blue-600 text-white rounded-lg p-2 mt-4 disabled:opacity-50"
-    disabled={!selectedAuditorium || !selectedDate || selectedTimes.length === 0}>
-    Reservar
-  </button>
-</div>

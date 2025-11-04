@@ -5,9 +5,6 @@
     }
 </script>
 <!-- AQUI INICIA EL HTML -->
-    <span>QuickSearch works!</span>
-    <h1>Consulta de fechas</h1>
-    <hr>
     <br>
     <hr>
     <div class="grid-primera-tabla">

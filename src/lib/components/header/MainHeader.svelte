@@ -1,6 +1,6 @@
 <script>
     import { navigateTo } from "$lib/utils/navigate.utils";
-    import Button from "$lib/components/buttons/BotonSimple.svelte"
+    import BotonSimple from "$lib/components/buttons/BotonSimple.svelte"
     export let buttons = [];
 </script>
 
@@ -18,10 +18,10 @@
         </section>
         <section>
             {#each buttons as boton}
-                <Button tipo={boton.tipo} 
+                <BotonSimple tipo={boton.tipo} 
                         textoBoton={boton.label} 
                         accion={boton.accion}>
-                </Button>
+                </BotonSimple>
             {/each}
         </section>
     </section>

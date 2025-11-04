@@ -7,6 +7,10 @@
 </script>
 
 <section class="container">
+    <div class="section-title">
+        <h3>Busqueda rápida</h3>
+    </div>
+    
     <QuickSearch>
 
     </QuickSearch>
@@ -14,9 +18,6 @@
 <section class="container">
     <ReservationCard></ReservationCard>
 </section>
-
-<Button textoBoton={textoBoton1}></Button>
-<Button textoBoton={textoBoton2}></Button>
     
 <style>
 

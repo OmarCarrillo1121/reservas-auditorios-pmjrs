@@ -1,5 +1,6 @@
 <script>
     import { navigateTo } from "$lib/utils/navigate.utils";
+    //Tipos de botones: 'principal', 'secundario', 'exito', 'error', 'advertencia', 'info'
     export let tipo = ""
     export let textoBoton = "";
     export let accion = null;
@@ -36,7 +37,7 @@
     }
 
     .boton-secundario:hover { 
-        background-color: var(--color-fondo-tarjetas); 
+        background-color: var(--color-fondo-tarjeta); 
     }
 
     .boton-exito {

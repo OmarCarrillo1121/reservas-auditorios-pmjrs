@@ -9,6 +9,7 @@
     import { navigateTo } from "$lib/utils/navigate.utils";
     import MainHeader from "$lib/components/header/MainHeader.svelte";
     import Navbar from "$lib/components/navbar/Navbar.svelte";
+    import Boton from "$lib/components/buttons/BotonSimple.svelte";
 
     let listaAuditorios = [];
 
@@ -23,10 +24,10 @@
 
     const headerButtons = [
         {
-            tipo: 'secundario',
+            tipo: "secundario",
             label: "Iniciar sesion",
-            accion: () => navigateTo('/login')
-        }
+            accion: () => navigateTo("/login"),
+        },
     ];
 
     const navigationItems = [
@@ -60,8 +61,13 @@
 <MainHeader buttons={headerButtons}></MainHeader>
 <Navbar navbarItems={navigationItems}></Navbar>
 
+<Boton tipo={'exito'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/reservas")} ></Boton>
+<Boton tipo={'error'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/login")} ></Boton>
+
 <section id="proximosEventos" class="container">
-    <h3>Próximos eventos</h3>
+    <section class="section-title">
+        <h3>Próximos eventos</h3>
+    </section>
     <Carousel {images} duration={10000}>
         <Controls />
         <CarouselIndicators />
@@ -69,7 +75,9 @@
 </section>
 
 <section id="auditorios" class="container">
-    <h3>Auditorios</h3>
+    <section class="section-title">
+        <h3>Auditorios</h3>
+    </section>
 
     <div class="cards-container">
         {#each listaAuditorios as auditorioData}
@@ -79,7 +87,9 @@
 </section>
 
 <section id="croquis" class="container">
-    <h3>Croquis de localizacion</h3>
+    <section class="section-title">
+        <h3>Croquis de localizacion</h3>
+    </section>
     <div style="height: 800px; border: solid 1px #000"></div>
 </section>
 
@@ -93,8 +103,8 @@
         grid-template-columns: repeat(4, 1fr);
         justify-content: center;
         align-items: center;
-        background-color: var(--color-bg-cards);
-        color: var(--color-text-primary);
+        background-color: var(--color-fondo-tarjeta);
+        color: var(--color-texto-primario);
         padding: 1rem 8rem;
     }
 </style>

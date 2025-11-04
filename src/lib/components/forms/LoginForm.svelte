@@ -1,6 +1,6 @@
 <script>
     import { navigateTo } from "$lib/utils/navigate.utils";
-    
+    import InputField from "../input/InputField.svelte";
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -28,6 +28,8 @@
        <br>
      	 <input type="usuario" class="cajita-input" placeholder="Ingrese Usuario" id="Usuario">
        </div>
+       <InputField label={'Correo'}></InputField>
+       <InputField label={'Direccion'}></InputField>
        <div class="cajita">
        <label for="Contraseña">Contraseña</label>
        <br>

@@ -2,68 +2,104 @@
     import CreateReservationForm from "$lib/components/forms/CreateReservationForm.svelte";
     import InputField from "$lib/components/input/InputField.svelte";
     import SelectField from "$lib/components/input/SelectField.svelte";
+    import HorizontalCalendar from "$lib/components/booking/HorizontalCalendar.svelte";
+    import TimeChips from "$lib/components/booking/TimeChips.svelte";
+    import BotonSimple from "$lib/components/buttons/BotonSimple.svelte";
 
     import { postReservacion } from "$lib/services/reservaciones.service";
 
     let nuevaReservacion = {
-        nombreRecinto: '',
-        fechaEvento: '',
-        horaInicio: '',
-        horaTermino: '',
-        nombreEvento: '',
-        tipoEvento: '',
-        origenEvento: '',
-        ponentes: '',
-        integrantesPresidium: '',
-        recursosRequeridos: ''
+        nombreRecinto: "",
+        fechaEvento: "",
+        horaInicio: "",
+        horaTermino: "",
+        nombreEvento: "",
+        tipoEvento: "",
+        origenEvento: "",
+        ponentes: "",
+        integrantesPresidium: "",
+        recursosRequeridos: "",
     };
-    $: console.log (nuevaReservacion);
+    $: console.log(nuevaReservacion);
+
+    let auditoriums = [];
+    let selectedAuditorium = "";
+    let selectedDate = null;
+    let availableTimes = ["07:00", "08:00", "09:00"];
+    let selectedTimes = [];
 </script>
 
-<div class="container form-container bb">
-    <SelectField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
-    <InputField id = "nombreRecinto" 
-                type = "text" 
-                label = {'Nombre del recinto'} 
-                bind:value = {nuevaReservacion.nombreRecinto}
-                />
+<div class="container">
+    <h4 class="section-title">Seleccionar fecha</h4>
+    <HorizontalCalendar
+        {selectedDate}
+        on:select={(e) => (selectedDate = e.detail)}
+    />
+
+    <h4 class="section-title">Fechas disponibles</h4>
+    <TimeChips
+        {availableTimes}
+        bind:selectedTimes
+        on:update={(e) => (selectedTimes = e.detail)}
+    />
 </div>
 
-<form action="">
+<form class="container form-container bb">
+    <SelectField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <InputField
+        id="nombreRecinto"
+        type="text"
+        label={"Nombre del recinto"}
+        bind:value={nuevaReservacion.nombreRecinto}
+    />
+    <BotonSimple tipo={'principal'}
+                textoBoton={'Crear reservacion'} 
+                accion={() => console.log('creandoReservacion')}>
+    </BotonSimple>
+</form>
+
+<!-- <form action="">
     <div>
         <label for="auditorio">Recinto</label>
         <select id="auditorio" name="Auditorio">
@@ -113,12 +149,16 @@
     <div>
         <label for="">Ponentes</label>
         <input id="" type="text" />
-        <button id="agregar_ponente" title="Agregar" type="button">Agregar</button>
+        <button id="agregar_ponente" title="Agregar" type="button"
+            >Agregar</button
+        >
     </div>
     <div>
         <label for="presidium">Integrantes del presidium</label>
         <input id="presidium" type="text" />
-        <button id="agregar_presidium" title="Agregar" type="button">Agregar</button>
+        <button id="agregar_presidium" title="Agregar" type="button"
+            >Agregar</button
+        >
     </div>
     <div>
         <label for="recursos">Recursos requeridos</label>
@@ -131,9 +171,7 @@
         </select>
     </div>
     <button type="submit" title="Enviar">Crear Reservacion</button>
-</form>
-
-<CreateReservationForm/>
+</form> -->
 
 <style>
     .form-container {
