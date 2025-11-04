@@ -69,7 +69,7 @@
     
     <div class="integrantes-grid">
         {#each integrantes as integrante}
-            <IntegranteCard {integrante} />
+            <IntegrantesCard {integrante} />
         {/each}
     </div>
 
@@ -80,7 +80,7 @@
 <!-- AQUI TERMINA EL HTML -->
 <style>
     .team-page {
-        background-color: var(--color-primary);
+        background-color: var(--color-primario);
         color: white;
         padding: 2rem var(--container-padding);
         min-height: 100vh;
@@ -146,7 +146,7 @@
         margin-top: 3rem;
         text-align: center;
         font-size: 0.75rem;
-        color: var(--color-primary-75);
+        color: var(--color-primario-75);
     }
     
     .unam-info {
@@ -160,7 +160,7 @@
     }
 
     .hackathon-title {
-        color: var(--color-accent);
+        color: var(--color-acento);
         margin: 0.5rem 0;
     }
 
