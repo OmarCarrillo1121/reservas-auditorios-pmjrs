@@ -4,7 +4,6 @@
     export let tipo = ""
     export let textoBoton = "";
     export let accion = null;
-    console.log(tipo);
     $: claseBoton = `boton boton-${tipo}`;
 </script>
 
