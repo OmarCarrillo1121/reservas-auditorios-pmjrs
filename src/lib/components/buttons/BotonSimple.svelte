@@ -1,13 +1,15 @@
 <script>
     import { navigateTo } from "$lib/utils/navigate.utils";
-    //Tipos de botones: 'principal', 'secundario', 'exito', 'error', 'advertencia', 'info'
+    //Tipos de botones: 'primario', 'secundario', 'exito', 'error', 'advertencia', 'info'
+    export let botonId = ""
+    export let botonType = ""
     export let tipo = ""
     export let textoBoton = "";
     export let accion = null;
     $: claseBoton = `boton boton-${tipo}`;
 </script>
 
-<button class={claseBoton} on:click={accion}>
+<button id={botonId} type={botonType} class={claseBoton} on:click={accion}>
     {textoBoton}
 </button>
 
@@ -21,12 +23,12 @@
         font-weight: 600;
     }
 
-    .boton-principal {
+    .boton-primario {
         background-color: var(--color-boton);
         color: var(--color-fondo);
     }
 
-    .boton-principal:hover { 
+    .boton-primario:hover { 
         background-color: #1B7B5C; 
     }
 
