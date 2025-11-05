@@ -45,9 +45,9 @@
 <div class="full-container f-col team-page">
     
     <div class="contenedor1 container f-row f-center-center">
+        <img class="imagen" src="/svg/unam-logo.svg" alt="logo unam">
         <img class="imagen" src="##" alt="logo unam">
-        <img class="imagen" src="##" alt="logo unam">
-        <img class="imagen" src="##" alt="logo fca">
+        <img class="imagen" src="/svg/fca-logo.svg" alt="logo fca">
     </div>
     
     <div class="unam-info f-col f-center-center">
@@ -114,9 +114,10 @@
 
     .contenedor1 {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin-bottom: 2rem;
+        gap: 3rem;
     }
 
     .contenedor2 {
@@ -127,19 +128,22 @@
     }
 
     .imagen {
-        width: 120px;
-        height: 150px;
+        width: 140px;
+        height: auto;
         object-fit: contain;
     }
 
     .integrantes-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(280px, 320px));
         grid-template-rows: repeat(2, auto);
-        gap: 2rem;
-        width: 90%;
+        gap: 1.5rem;
+        width: 80%;
         margin: 0 auto;
-        padding: 1rem 0;
+        padding: 2rem 0;
+        justify-items: center;
+        justify-content: center;
+        max-width: 800px;
     }
 
     footer {
