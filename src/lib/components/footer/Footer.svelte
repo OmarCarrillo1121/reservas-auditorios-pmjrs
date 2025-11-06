@@ -6,33 +6,33 @@
             nombre: "Rosario",
             descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
             imagen: "/images/integrantes/foto1.png",
-            linkedin: "#",
-            github: "#",
-            email: "#"
+            linkedin: "https://mx.linkedin.com/",
+            github: "https://github.com/",
+            email: "mail@mail.com"
         },
         {
             nombre: "Rocio",
             descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
             imagen: "/images/integrantes/foto2.png",
-            linkedin: "#",
-            github: "#",
-            email: "#"
+            linkedin: "https://mx.linkedin.com/",
+            github: "https://github.com/",
+            email: "mail@mail.com"
         },
         {
             nombre: "Ruben Omar",
             descripcion: "Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.",
             imagen: "/images/integrantes/foto3.png",
-            linkedin: "#",
-            github: "#",
-            email: "#"
+            linkedin: "https://mx.linkedin.com/",
+            github: "https://github.com/",
+            email: "mail@mail.com"
         },
         {
             nombre: "Antonio",
             descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
             imagen: "/images/integrantes/foto4.png",
-            linkedin: "#",
-            github: "#",
-            email: "#"
+            linkedin: "https://mx.linkedin.com/",
+            github: "https://github.com/",
+            email: "mail@mail.com"
         }
     ];
 

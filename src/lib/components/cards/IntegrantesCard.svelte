@@ -13,6 +13,10 @@
         console.log('Enviar email a', integrante.nombre);
         if (integrante.email) window.location.href = 'mailto:${integrante.email}';
     }
+
+    import { mdiEmailOutline, mdiGithub, mdiLinkedin } from '@mdi/js'
+    import Icon from '../icons/Icon.svelte';
+    
 </script>
 
 <div class="card-container">
@@ -34,13 +38,13 @@
     <div class="card-footer">
         <div class="social-icons">
             <button class="icon-btn" on:click={handleLinkedIn} title="LinkedIn">
-                💼
+                <Icon path={mdiLinkedin} size={32} color={'var(--color-texto-secundario)'}/>
             </button>
             <button class="icon-btn" on:click={handleGitHub} title="GitHub">
-                ⚡
+                <Icon path={mdiGithub} size={32} color={'var(--color-texto-secundario)'}/>
             </button>
             <button class="icon-btn" on:click={handleEmail} title="Email">
-                📧
+                <Icon path={mdiEmailOutline} size={32} color={'var(--color-texto-secundario)'}/>
             </button>
         </div>
     </div>
