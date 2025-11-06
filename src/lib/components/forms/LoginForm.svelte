@@ -1,6 +1,8 @@
 <script>
     import { navigateTo } from "$lib/utils/navigate.utils";
     import InputField from "../input/InputField.svelte";
+    import Boton from "$lib/components/buttons/BotonSimple.svelte";
+
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -23,20 +25,29 @@
      <form action="#"> 
         
        <h4>Iniciar sesión</h4>
-       <div class="cajita">
+       <!--div class="cajita">
        <label for="Usuario">Usuario</label>
        <br>
      	 <input type="usuario" class="cajita-input" placeholder="Ingrese Usuario" id="Usuario">
-       </div>
-       <InputField label={'Correo'}></InputField>
-       <InputField label={'Direccion'}></InputField>
+       </div-->
+       <br>
        <div class="cajita">
+       <InputField label={'Usuario'}></InputField>
+       </div>
+       <br>
+       <div class="cajita">
+       <InputField label={'Contraseña'}></InputField>
+       </div>
+       <!--div class="cajita">
        <label for="Contraseña">Contraseña</label>
        <br>
        <input type="password" class="cajita-input" placeholder="Ingrese Contraseña" id="Contraseña">
        </div>
        <br>
-       <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button>
+       <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button-->
+       <br>
+       <Boton tipo={'exito'} textoBoton={'Ingresar'} onclick={() => navigateTo("/reservas")} ></Boton>
+       <br>
        <br>
        <p>Olvidé mi contraseña</p>
      </form>
@@ -98,6 +109,9 @@
      }
 
      .cajita{
+     display: flex;
+     justify-content: center;
+     align-items: center;
      flex-basis: 80px;
      margin: 5px 2px;
      padding: 7px;
