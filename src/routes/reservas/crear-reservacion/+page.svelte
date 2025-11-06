@@ -115,10 +115,7 @@
         horaTermino: "",
         nombreEvento: "",
         tipoEvento: "",
-        origenEvento: "",
-        ponentes: "",
-        integrantesPresidium: "",
-        recursosRequeridos: "",
+        origenEvento: ""
     };
     $: console.log(nuevaReservacion);
 
