@@ -30,11 +30,9 @@
        <br>
      	 <input type="usuario" class="cajita-input" placeholder="Ingrese Usuario" id="Usuario">
        </div-->
-       <br>
        <div class="cajita">
        <InputField label={'Usuario'}></InputField>
        </div>
-       <br>
        <div class="cajita">
        <InputField label={'Contraseña'}></InputField>
        </div>
@@ -45,10 +43,9 @@
        </div>
        <br>
        <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button-->
-       <br>
-       <Boton tipo={'exito'} textoBoton={'Ingresar'} onclick={() => navigateTo("/reservas")} ></Boton>
-       <br>
-       <br>
+       <div class="cajita">
+       <Boton tipo={'exito'} textoBoton={'Ingresar'} accion={() => navigateTo("/reservas")} ></Boton>
+       </div>
        <p>Olvidé mi contraseña</p>
      </form>
     </div>  
@@ -113,11 +110,11 @@
      justify-content: center;
      align-items: center;
      flex-basis: 80px;
-     margin: 5px 2px;
+     margin: 25px 2px;
      padding: 7px;
      }
 
-     .cajita-input{
+     /*.cajita-input{
        background-color: rgb(219, 214, 214); 
        padding: 7px;
      }
@@ -126,8 +123,6 @@
     padding: 7px;
     width: 80%;
     margin: 5px;
-    }
-
+    }*/
     
-     
 </style>
