@@ -1,27 +1,24 @@
 <script>
 
-      // Aquí puedes agregar la lógica de búsqueda, filtrado u ordenamiento
   let searchQuery = "";
   let orderBy = "";
 
   function handleSearch() {
-    // Lógica de búsqueda
   }
 
   function handleOrderChange(event) {
     orderBy = event.target.value;
-    // Lógica para ordenar
   }
 
   function verTodas() {
-    // Acción al hacer clic en "Ver todas"
   }
+
+  import { mdiBookSearchOutline } from '@mdi/js';
+
 </script>
 
-<!-- AQUI INICIA EL HTML -->
-
 <section class="reservaciones">
-  <div class="header">
+  <div class="titulo-reservaciones">
     <h2>Mis reservaciones</h2>
     <button class="ver-todas" on:click={verTodas}>Ver todas</button>
   </div>
@@ -33,7 +30,17 @@
         placeholder="Buscar" 
         bind:value={searchQuery}
       />
-      <button class="btn-buscar" on:click={handleSearch}>🔍</button>
+      <button class="btn-buscar" on:click={handleSearch} aria-label="Buscar" title="Buscar"> 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="currentColor"
+        >
+          <path d={mdiBookSearchOutline} />
+        </svg> 
+      </button>
     </div>
 
     <div class="ordenar">
@@ -48,51 +55,49 @@
   </div>
 </section>
 
-<!-- AQUI TERMINA EL HTML -->
-
-
-
-
 <style>
-.reservaciones {
-    font-family: sans-serif;
-    padding: 1rem;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+  /* fuente global */
+  * {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  .header {
+  .reservaciones {
+    border-top: 1px solid #000;
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+
+  .titulo-reservaciones {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
+    margin: 1rem 1rem 1rem 0;
   }
 
-  h2 {
+  .titulo-reservaciones h2 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #3b3b3b;
     margin: 0;
-    font-weight: 600;
-    font-size: 1.2rem;
+    padding-left: 0rem;
   }
 
   .ver-todas {
-  background-color: var(--color-primary);  
-  color: white;
-  border-radius: 16px;
-  padding: 16px 24px;
-  margin: 16px;
-  cursor: pointer;
-  min-width: 48px;
-  min-height: 48px;
-  text-align: left;
-  border: none;
-  font-family: var(--font-body);
-}
+    background-color: #21806A;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+    border: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
 
-.ver-todas:hover {
-  background-color: var(--color-primary-hover);
-}
+  .ver-todas:hover {
+    background-color: #1B7B5C;
+  }
 
   .filtros {
     display: flex;
@@ -129,11 +134,24 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #3b3b3b;
   }
 
   .ordenar select {
-    padding: 0.4rem;
+    padding: 0.4rem 1.8rem 0.4rem 0.4rem;
     border: 1px solid #000;
     border-radius: 4px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #3b3b3b;
+    background-image: none; /*icono con sombra */
+    appearance: none; /*estilo del sistema */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* Flecha personalizada opcional*/
+  .ordenar select::-ms-expand {
+    display: none;
   }
 </style>
