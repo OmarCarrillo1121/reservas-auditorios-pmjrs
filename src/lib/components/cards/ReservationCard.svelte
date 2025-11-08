@@ -1,24 +1,21 @@
 <script>
 
-      // Aquí puedes agregar la lógica de búsqueda, filtrado u ordenamiento
   let searchQuery = "";
   let orderBy = "";
 
   function handleSearch() {
-    // Lógica de búsqueda
   }
 
   function handleOrderChange(event) {
     orderBy = event.target.value;
-    // Lógica para ordenar
   }
 
   function verTodas() {
-    // Acción al hacer clic en "Ver todas"
   }
-</script>
 
-<!-- AQUI INICIA EL HTML -->
+  import { mdiBookSearchOutline } from '@mdi/js';
+
+</script>
 
 <section class="reservaciones">
   <div class="titulo-reservaciones">
@@ -33,7 +30,17 @@
         placeholder="Buscar" 
         bind:value={searchQuery}
       />
-      <button class="btn-buscar" on:click={handleSearch}>🔍</button>
+      <button class="btn-buscar" on:click={handleSearch} aria-label="Buscar" title="Buscar"> 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="currentColor"
+        >
+          <path d={mdiBookSearchOutline} />
+        </svg> 
+      </button>
     </div>
 
     <div class="ordenar">
@@ -49,43 +56,47 @@
 </section>
 
 <style>
-  /* Línea separadora superior de la sección */
+  /* fuente global */
+  * {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
   .reservaciones {
-    border-top: 1px solid #000; /* línea negra */
+    border-top: 1px solid #000;
     padding-top: 1rem;
     margin-top: 2rem;
   }
 
-  /* Contenedor del título y botón */
   .titulo-reservaciones {
     display: flex;
-    justify-content: space-between; /* empuja el botón a la derecha */
-    align-items: center; /* alinea verticalmente h2 y el botón */
+    justify-content: space-between;
+    align-items: center;
     margin: 1rem 1rem 1rem 0;
   }
 
   .titulo-reservaciones h2 {
-    font-family: sans-serif;
-    font-size: 1rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #3b3b3b;
     margin: 0;
-    padding-left: 1rem; /* alineado con “Búsqueda rápida” */
+    padding-left: 0rem;
   }
 
-  /* Botón igual al de Iniciar sesión */
   .ver-todas {
-    background-color: #21806A; /* mismo tono verde */
+    background-color: #21806A;
     color: #ffffff;
     border-radius: 8px;
     padding: 8px 20px;
     cursor: pointer;
     border: none;
-    font-family: var(--font-body, Arial, sans-serif);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     transition: background-color 0.3s ease;
   }
 
   .ver-todas:hover {
-    background-color: #1B7B5C; /* tono más oscuro al pasar el cursor */
+    background-color: #1B7B5C;
   }
 
   .filtros {
@@ -123,12 +134,24 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: sans-serif;
+    color: #3b3b3b;
   }
 
   .ordenar select {
-    padding: 0.4rem;
+    padding: 0.4rem 1.8rem 0.4rem 0.4rem;
     border: 1px solid #000;
     border-radius: 4px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #3b3b3b;
+    background-image: none; /*icono con sombra */
+    appearance: none; /*estilo del sistema */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* Flecha personalizada opcional*/
+  .ordenar select::-ms-expand {
+    display: none;
   }
 </style>
