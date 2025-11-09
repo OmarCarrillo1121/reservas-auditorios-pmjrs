@@ -1,7 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
     import { navigateTo } from "$lib/utils/navigate.utils";
-    import Input from "./Input.svelte";
+    import Input from "$lib/components/input/InputField.svelte";
     
     function handleNavigate(route){
       goto(route);
