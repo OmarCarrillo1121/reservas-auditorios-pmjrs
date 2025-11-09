@@ -1,6 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
     import { navigateTo } from "$lib/utils/navigate.utils";
+    import Input from "./Input.svelte";
     
     function handleNavigate(route){
       goto(route);
@@ -123,7 +124,7 @@
 <!-- AQUI INICIA EL HTML -->
 <div class="formulario-reserva">
     <div class="fila-formulario">
-        <div class="campo-grupo">
+        <div class="campo-grupo"> 
             <!-- svelte-ignore a11y_label_has_associated_control -->
             <label class="etiqueta">Auditorio:</label>
             <div class="desplegable">
@@ -143,16 +144,16 @@
                 </div>
             </div>
         </div>
-        
+        </div>
         <div class="separador-vertical"></div>
         
         <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Inicio:</label>
-            <input 
-                type="time" 
+            <Input
+                id="hora-inicio"
+                type="time"
+                label="Inicio:" 
                 bind:value={horaInicio}
-                class="input-tiempo">
+                />
         </div>
         
         <div class="campo-grupo accion-principal">
@@ -169,42 +170,35 @@
     
     <div class="fila-formulario">
         <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Fecha del evento:</label>
-            <input 
-                type="date" 
+            <Input
+              id="fecha-evento" 
+                type="date"
+                label="Fecha del evento"
                 bind:value={fechaEvento}
                 min={fechaMinima}
                 max={fechaMaxima}
-                class="input-fecha"
-                on:change={()=> validarFecha(fechaEvento)}
-            >
+                on:change={() => validarFecha(fechaEvento)}
+            />
         </div>
-
-        
         <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Fin:</label>
-            <input 
-                type="time" 
+            <Input 
+              id="hora-fin"
+                type="time"
+                label="Fin:"
                 bind:value={horaFin}
-                class="input-tiempo"
-            >
+            />
         </div>
-        <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
-              como minimo*</div>
         <div class="campo-grupo"></div>
-    </div>
-</div>
-
+        </div>       
+        <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
+              como minimo*
+        </div>
 {#if mostrarError}
     <div class="mensaje-error">
         <div class="contenido-error">
             <div class="texto-error">
                 <span class="icono-advertencia">⚠️</span>
-                {#if !esDiaValido(fechaEvento)}
                 Fecha y hora de reservación no disponible
-                {/if}
             </div>
             <button class="boton boton-primario" on:click={() => {
                 mostrarError = false;
@@ -270,17 +264,22 @@
 .info-dias {
   font-family: var(--fuente-cuerpo);
   color: var(--color-texto-secundario);
-  margin-top: 0.25 rem;
+  margin-top: 1rem;
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 0.75rem;
+  background-color:var(--color-fondo-tarjeta);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-bordes);
 }
-.input-fecha:invalid{
-  border-color: var(--color-advertencia);
-} 
-
 .formulario-reserva {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: var(--color-fondo-tarjeta);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-bordes);
 }    
 .fila-formulario {
   display: grid;
@@ -310,7 +309,7 @@
   font-weight: 600;
 }
 .boton-primario {
-  background-color: var(--color-boton);
+  background-color: var(--color-primario);
   color: var(--color-fondo);
 }
 .boton-primario:hover { 
@@ -361,19 +360,11 @@
   display: block;
 }
 .separador-vertical {
-  width: 2px;
+  width: 1px;
   background-color: var(--color-bordes);
   align-self: stretch;
   margin: 0.5rem 0;
-}
-.input-fecha {
-  padding: 0.75rem;
-  border: 1px solid var(--color-bordes);
-  border-radius: 0.5rem;
-  font-family: var(--fuente-cuerpo);
-  background-color: var(--color-fondo);
-  color: var(--color-texto-primario);
-  width: 100%;
+  opacity: 0.6;
 }
 .mensaje-error {
   background-color: var(--color-advertencia);
