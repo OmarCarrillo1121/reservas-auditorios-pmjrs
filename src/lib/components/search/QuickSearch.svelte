@@ -179,9 +179,8 @@
                 class="input-fecha"
                 on:change={()=> validarFecha(fechaEvento)}
             >
-            <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
-              como minimo*</div>
         </div>
+
         
         <div class="campo-grupo">
             <!-- svelte-ignore a11y_label_has_associated_control -->
@@ -192,7 +191,8 @@
                 class="input-tiempo"
             >
         </div>
-        
+        <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
+              como minimo*</div>
         <div class="campo-grupo"></div>
     </div>
 </div>
