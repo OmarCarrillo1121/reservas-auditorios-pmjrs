@@ -13,9 +13,8 @@
     let horaFin = '20:00';
     let mostrarError = false;
 
-    //Limites de hora
-
-     function esHorarioValido(horaInicio, horaFin) {
+    // Límites de hora 
+    function esHorarioValido(horaInicio, horaFin) {
         const inicio = convertirHoraANumero(horaInicio);
         const fin = convertirHoraANumero(horaFin);
         const horarioPermitido = inicio >= 9 && fin <= 20;
@@ -29,57 +28,31 @@
         return horas + (minutos / 60);
     }
 
-    function validarTodo() {
-      validarFecha(fechaEvento);
-      if (esDiaValido(fechaEvento)) {
-            if (!esHorarioValido(horaInicio, horaFin)) {
-                mostrarError = true;
-                return false;
-            }
-      }
-      return true;
-    }
-    function corregirHorario() {
-        const inicioNum = convertirHoraANumero(horaInicio);
-        const finNum = convertirHoraANumero(horaFin);
-        if (inicioNum < 9) {
-            horaInicio = '09:00';
-        }
-         if (finNum > 20) {
-            horaFin = '20:00';
-        }
-         if (finNum <= convertirHoraANumero(horaInicio)) {
-            horaFin = '10:00'; 
-        }
-    }
-
-    //Limites de tiempo
-
+    // Límites de tiempo
     function getFechaMinima(){
-      const hoy =new Date();
-      const unaSemanaDespues= new Date();
-      unaSemanaDespues.setDate(hoy.getDate()+7);
+      const hoy = new Date();
+      const unaSemanaDespues = new Date();
+      unaSemanaDespues.setDate(hoy.getDate() + 7);
       return unaSemanaDespues.toISOString().split('T')[0];
     }
+
     function getFechaMaxima(){
-      const hoy =new Date();
-      const seisMeses= new Date(hoy.setMonth(hoy.getMonth()+6));
+      const hoy = new Date();
+      const seisMeses = new Date(hoy.setMonth(hoy.getMonth() + 6));
       return seisMeses.toISOString().split('T')[0]; 
     }
 
-    //Limites de dia
+    // Límites de día
     function esDiaValido(fecha){
       const dia = new Date(fecha).getDay();
-      return dia !==0;
+      return dia !== 0; 
     }
 
     function obtenerProximaFechaValida(){
-      let proximaFecha =new Date(getFechaMinima());
-
+      let proximaFecha = new Date(getFechaMinima());
       while (!esDiaValido(proximaFecha.toISOString().split('T')[0])){
-        proximaFecha.setDate(proximaFecha.getDate()+1);
+        proximaFecha.setDate(proximaFecha.getDate() + 1);
       }
-      
       return proximaFecha.toISOString().split('T')[0]; 
     }
 
@@ -87,22 +60,48 @@
       const fechaSel = new Date(fecha);
       const fechaMin = new Date(fechaMinima);
       const fechaMax = new Date(fechaMaxima);
-  
-
-    //limite de fechas (minimo una semana de anticipación)
-
-    if (fechaSel < fechaMin || fechaSel > fechaMax){
-      fechaEvento = obtenerProximaFechaValida();
-      mostrarError = true;
-      return;
+      
+     
+      if (fechaSel < fechaMin || fechaSel > fechaMax) {
+        fechaEvento = obtenerProximaFechaValida();
+        return false;
+      }
+      
+      
+      if (!esDiaValido(fecha)) {
+        fechaEvento = obtenerProximaFechaValida();
+        return false;
+      }
+      
+      return true;
     }
-    
-    if (!esDiaValido(fecha)){
-      fechaEvento = obtenerProximaFechaValida();
-      mostrarError = true;
 
+    function validarTodo() {
+      const fechaValida = validarFecha(fechaEvento);
+      const horarioValido = esHorarioValido(horaInicio, horaFin);
+      
+      if (!fechaValida || !horarioValido) {
+        mostrarError = true;
+        return false;
+      }
+      
+      mostrarError = false;
+      return true;
     }
-  }
+
+    function corregirHorario() {
+        const inicioNum = convertirHoraANumero(horaInicio);
+        const finNum = convertirHoraANumero(horaFin);
+        if (inicioNum < 9) {
+            horaInicio = '09:00';
+        }
+        if (finNum > 20) {
+            horaFin = '20:00';
+        }
+        if (finNum <= convertirHoraANumero(horaInicio)) {
+            horaFin = '10:00'; 
+        }
+    }
 
     export let botonId = ""
     export let botonType = ""
@@ -155,7 +154,7 @@
         </div>
         
         <div class="campo-grupo accion-principal">
-            <button class="boton boton-advertencia" on:click={() => {
+            <button class="boton boton-primario" on:click={() => {
                 if (validarTodo()){
                   handleNavigate('user/dashboard');
                 }
