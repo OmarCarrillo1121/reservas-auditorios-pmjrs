@@ -144,10 +144,8 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="separador-vertical"></div>
         
-        <div class="campo-grupo">
+         <div class="campo-grupo">
             <Input
                 id="hora-inicio"
                 type="time"
@@ -157,7 +155,6 @@
         </div>
         
         <div class="campo-grupo accion-principal">
-
             <button class="boton boton-advertencia" on:click={() => {
                 if (validarTodo()){
                   handleNavigate('user/dashboard');
@@ -168,6 +165,7 @@
         </div>
     </div>
     
+    <!-- Fila 2: Fecha evento | Fin | (vacío) -->
     <div class="fila-formulario">
         <div class="campo-grupo">
             <Input
@@ -189,11 +187,13 @@
             />
         </div>
         <div class="campo-grupo"></div>
-        </div>       
-        <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
+    </div>
+    
+    <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
               como minimo*
-        </div>
-{#if mostrarError}
+    </div>
+
+    {#if mostrarError}
     <div class="mensaje-error">
         <div class="contenido-error">
             <div class="texto-error">
@@ -208,7 +208,8 @@
             </button>
         </div>
     </div>
-{/if}
+    {/if}
+</div>
       <!--<button class="boton boton-primario">Seleccionar auditorio</button>
       <div class="links">
         <a href="#">Auditorio Maestro Jose Antonio Echenique García</a>
@@ -283,7 +284,7 @@
 }    
 .fila-formulario {
   display: grid;
-  grid-template-columns: 2fr auto 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: end;
   gap: 1rem;
 }    
@@ -359,13 +360,6 @@
 .desplegable:hover .opciones-desplegable {
   display: block;
 }
-.separador-vertical {
-  width: 1px;
-  background-color: var(--color-bordes);
-  align-self: stretch;
-  margin: 0.5rem 0;
-  opacity: 0.6;
-}
 .mensaje-error {
   background-color: var(--color-advertencia);
   border: 1px solid var(--color-advertencia);
@@ -394,9 +388,6 @@
 .fila-formulario {
   grid-template-columns: 1fr;
   gap: 1rem;
-}
-.separador-vertical {
-  display: none;
 }
 
 .contenido-error {
