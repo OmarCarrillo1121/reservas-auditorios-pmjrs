@@ -1,6 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
     import { navigateTo } from "$lib/utils/navigate.utils";
+    import Input from "$lib/components/input/InputField.svelte";
     
     function handleNavigate(route){
       goto(route);
@@ -12,9 +13,8 @@
     let horaFin = '20:00';
     let mostrarError = false;
 
-    //Limites de hora
-
-     function esHorarioValido(horaInicio, horaFin) {
+    // Límites de hora 
+    function esHorarioValido(horaInicio, horaFin) {
         const inicio = convertirHoraANumero(horaInicio);
         const fin = convertirHoraANumero(horaFin);
         const horarioPermitido = inicio >= 9 && fin <= 20;
@@ -28,57 +28,31 @@
         return horas + (minutos / 60);
     }
 
-    function validarTodo() {
-      validarFecha(fechaEvento);
-      if (esDiaValido(fechaEvento)) {
-            if (!esHorarioValido(horaInicio, horaFin)) {
-                mostrarError = true;
-                return false;
-            }
-      }
-      return true;
-    }
-    function corregirHorario() {
-        const inicioNum = convertirHoraANumero(horaInicio);
-        const finNum = convertirHoraANumero(horaFin);
-        if (inicioNum < 9) {
-            horaInicio = '09:00';
-        }
-         if (finNum > 20) {
-            horaFin = '20:00';
-        }
-         if (finNum <= convertirHoraANumero(horaInicio)) {
-            horaFin = '10:00'; 
-        }
-    }
-
-    //Limites de tiempo
-
+    // Límites de tiempo
     function getFechaMinima(){
-      const hoy =new Date();
-      const unaSemanaDespues= new Date();
-      unaSemanaDespues.setDate(hoy.getDate()+7);
+      const hoy = new Date();
+      const unaSemanaDespues = new Date();
+      unaSemanaDespues.setDate(hoy.getDate() + 7);
       return unaSemanaDespues.toISOString().split('T')[0];
     }
+
     function getFechaMaxima(){
-      const hoy =new Date();
-      const seisMeses= new Date(hoy.setMonth(hoy.getMonth()+6));
+      const hoy = new Date();
+      const seisMeses = new Date(hoy.setMonth(hoy.getMonth() + 6));
       return seisMeses.toISOString().split('T')[0]; 
     }
 
-    //Limites de dia
+    // Límites de día
     function esDiaValido(fecha){
       const dia = new Date(fecha).getDay();
-      return dia !==0;
+      return dia !== 0; 
     }
 
     function obtenerProximaFechaValida(){
-      let proximaFecha =new Date(getFechaMinima());
-
+      let proximaFecha = new Date(getFechaMinima());
       while (!esDiaValido(proximaFecha.toISOString().split('T')[0])){
-        proximaFecha.setDate(proximaFecha.getDate()+1);
+        proximaFecha.setDate(proximaFecha.getDate() + 1);
       }
-      
       return proximaFecha.toISOString().split('T')[0]; 
     }
 
@@ -86,22 +60,48 @@
       const fechaSel = new Date(fecha);
       const fechaMin = new Date(fechaMinima);
       const fechaMax = new Date(fechaMaxima);
-  
-
-    //limite de fechas (minimo una semana de anticipación)
-
-    if (fechaSel < fechaMin || fechaSel > fechaMax){
-      fechaEvento = obtenerProximaFechaValida();
-      mostrarError = true;
-      return;
+      
+     
+      if (fechaSel < fechaMin || fechaSel > fechaMax) {
+        fechaEvento = obtenerProximaFechaValida();
+        return false;
+      }
+      
+      
+      if (!esDiaValido(fecha)) {
+        fechaEvento = obtenerProximaFechaValida();
+        return false;
+      }
+      
+      return true;
     }
-    
-    if (!esDiaValido(fecha)){
-      fechaEvento = obtenerProximaFechaValida();
-      mostrarError = true;
 
+    function validarTodo() {
+      const fechaValida = validarFecha(fechaEvento);
+      const horarioValido = esHorarioValido(horaInicio, horaFin);
+      
+      if (!fechaValida || !horarioValido) {
+        mostrarError = true;
+        return false;
+      }
+      
+      mostrarError = false;
+      return true;
     }
-  }
+
+    function corregirHorario() {
+        const inicioNum = convertirHoraANumero(horaInicio);
+        const finNum = convertirHoraANumero(horaFin);
+        if (inicioNum < 9) {
+            horaInicio = '09:00';
+        }
+        if (finNum > 20) {
+            horaFin = '20:00';
+        }
+        if (finNum <= convertirHoraANumero(horaInicio)) {
+            horaFin = '10:00'; 
+        }
+    }
 
     export let botonId = ""
     export let botonType = ""
@@ -123,7 +123,7 @@
 <!-- AQUI INICIA EL HTML -->
 <div class="formulario-reserva">
     <div class="fila-formulario">
-        <div class="campo-grupo">
+        <div class="campo-grupo"> 
             <!-- svelte-ignore a11y_label_has_associated_control -->
             <label class="etiqueta">Auditorio:</label>
             <div class="desplegable">
@@ -144,20 +144,17 @@
             </div>
         </div>
         
-        <div class="separador-vertical"></div>
-        
-        <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Inicio:</label>
-            <input 
-                type="time" 
+         <div class="campo-grupo">
+            <Input
+                id="hora-inicio"
+                type="time"
+                label="Inicio:" 
                 bind:value={horaInicio}
-                class="input-tiempo">
+                />
         </div>
         
         <div class="campo-grupo accion-principal">
-
-            <button class="boton boton-advertencia" on:click={() => {
+            <button class="boton boton-primario" on:click={() => {
                 if (validarTodo()){
                   handleNavigate('user/dashboard');
                 }
@@ -167,44 +164,40 @@
         </div>
     </div>
     
+    <!-- Fila 2: Fecha evento | Fin | (vacío) -->
     <div class="fila-formulario">
         <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Fecha del evento:</label>
-            <input 
-                type="date" 
+            <Input
+              id="fecha-evento" 
+                type="date"
+                label="Fecha del evento"
                 bind:value={fechaEvento}
                 min={fechaMinima}
                 max={fechaMaxima}
-                class="input-fecha"
-                on:change={()=> validarFecha(fechaEvento)}
-            >
+                on:change={() => validarFecha(fechaEvento)}
+            />
         </div>
-
-        
         <div class="campo-grupo">
-            <!-- svelte-ignore a11y_label_has_associated_control -->
-            <label class="etiqueta">Fin:</label>
-            <input 
-                type="time" 
+            <Input 
+              id="hora-fin"
+                type="time"
+                label="Fin:"
                 bind:value={horaFin}
-                class="input-tiempo"
-            >
+            />
         </div>
-        <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
-              como minimo*</div>
         <div class="campo-grupo"></div>
     </div>
-</div>
+    
+    <div class="info-dias">*Reservación disponible de lunes a sabado. Importante: 1 semana de anticipación 
+              como minimo*
+    </div>
 
-{#if mostrarError}
+    {#if mostrarError}
     <div class="mensaje-error">
         <div class="contenido-error">
             <div class="texto-error">
                 <span class="icono-advertencia">⚠️</span>
-                {#if !esDiaValido(fechaEvento)}
                 Fecha y hora de reservación no disponible
-                {/if}
             </div>
             <button class="boton boton-primario" on:click={() => {
                 mostrarError = false;
@@ -214,7 +207,8 @@
             </button>
         </div>
     </div>
-{/if}
+    {/if}
+</div>
       <!--<button class="boton boton-primario">Seleccionar auditorio</button>
       <div class="links">
         <a href="#">Auditorio Maestro Jose Antonio Echenique García</a>
@@ -270,21 +264,26 @@
 .info-dias {
   font-family: var(--fuente-cuerpo);
   color: var(--color-texto-secundario);
-  margin-top: 0.25 rem;
+  margin-top: 1rem;
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 0.75rem;
+  background-color:var(--color-fondo-tarjeta);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-bordes);
 }
-.input-fecha:invalid{
-  border-color: var(--color-advertencia);
-} 
-
 .formulario-reserva {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: var(--color-fondo-tarjeta);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-bordes);
 }    
 .fila-formulario {
   display: grid;
-  grid-template-columns: 2fr auto 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: end;
   gap: 1rem;
 }    
@@ -310,7 +309,7 @@
   font-weight: 600;
 }
 .boton-primario {
-  background-color: var(--color-boton);
+  background-color: var(--color-primario);
   color: var(--color-fondo);
 }
 .boton-primario:hover { 
@@ -360,21 +359,6 @@
 .desplegable:hover .opciones-desplegable {
   display: block;
 }
-.separador-vertical {
-  width: 2px;
-  background-color: var(--color-bordes);
-  align-self: stretch;
-  margin: 0.5rem 0;
-}
-.input-fecha {
-  padding: 0.75rem;
-  border: 1px solid var(--color-bordes);
-  border-radius: 0.5rem;
-  font-family: var(--fuente-cuerpo);
-  background-color: var(--color-fondo);
-  color: var(--color-texto-primario);
-  width: 100%;
-}
 .mensaje-error {
   background-color: var(--color-advertencia);
   border: 1px solid var(--color-advertencia);
@@ -403,9 +387,6 @@
 .fila-formulario {
   grid-template-columns: 1fr;
   gap: 1rem;
-}
-.separador-vertical {
-  display: none;
 }
 
 .contenido-error {
