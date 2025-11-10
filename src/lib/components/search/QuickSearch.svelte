@@ -58,21 +58,21 @@
 
     function validarFecha(fecha) {
       const fechaSel = new Date(fecha);
-      const fechaMin = new Date(fechaMinima);
-      const fechaMax = new Date(fechaMaxima);
+      const fechaMin = new Date(getFechaMinima());
+      const fechaMax = new Date(getFechaMaxima());
       
      
       if (fechaSel < fechaMin || fechaSel > fechaMax) {
         fechaEvento = obtenerProximaFechaValida();
+        mostrarError= true;
         return false;
       }
-      
-      
+
       if (!esDiaValido(fecha)) {
         fechaEvento = obtenerProximaFechaValida();
+        mostrarError= true;
         return false;
       }
-      
       return true;
     }
 
@@ -92,14 +92,22 @@
     function corregirHorario() {
         const inicioNum = convertirHoraANumero(horaInicio);
         const finNum = convertirHoraANumero(horaFin);
+        let horarioCorregido =false;
+
         if (inicioNum < 9) {
             horaInicio = '09:00';
+            horarioCorregido = true;
         }
         if (finNum > 20) {
             horaFin = '20:00';
+            horarioCorregido = true;
         }
-        if (finNum <= convertirHoraANumero(horaInicio)) {
-            horaFin = '10:00'; 
+        if (finNum <= inicioNum) {
+            horaFin = '20:00'; 
+            horarioCorregido = true;
+        }
+        if (horarioCorregido){
+          mostrarError= true;
         }
     }
 
@@ -113,7 +121,9 @@
     $: fechaMinima = getFechaMinima();
     $: fechaMaxima = getFechaMaxima();
     $: if (horaInicio && horaFin) {
+       if (!esHorarioValido(horaInicio, horaFin)){
         corregirHorario();
+       } 
     }
     $: if (typeof fechaEvento === 'undefined'){
       fechaEvento = obtenerProximaFechaValida();
@@ -277,9 +287,10 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.5rem;
-  background-color: var(--color-fondo-tarjeta);
+  background-color: white;
   border-radius: 0.5rem;
   border: 1px solid var(--color-bordes);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }    
 .fila-formulario {
   display: grid;
@@ -314,13 +325,6 @@
 }
 .boton-primario:hover { 
   background-color: #1B7B5C; 
-}
-.boton-advertencia {
-  background-color: var(--color-advertencia);
-  color: var(--color-fondo);
-}
-.boton-advertencia:hover { 
-  background-color: #e0a800; 
 }
 .desplegable {
   position: relative;
