@@ -22,14 +22,6 @@
         }
     });
 
-    const headerButtons = [
-        {
-            tipo: "secundario",
-            label: "Iniciar sesion",
-            accion: () => navigateTo("/login"),
-        },
-    ];
-
     const navigationItems = [
         {
             label: "Proximos eventos",
@@ -58,11 +50,18 @@
     ];
 </script>
 
-<MainHeader buttons={headerButtons}></MainHeader>
+<MainHeader>
+    <Boton 
+        slot="acciones"
+        botonId={'iniciarSesion'}
+        botonType={'button'}
+        tipo={"primario-acento"} 
+        textoBoton={"Iniciar sesion"} 
+        accion= {() => navigateTo("/login")}
+    >
+    </Boton>
+</MainHeader>
 <Navbar navbarItems={navigationItems}></Navbar>
-
-<Boton tipo={'exito'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/reservas")} ></Boton>
-<Boton tipo={'error'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/login")} ></Boton>
 
 <section id="proximosEventos" class="container">
     <section class="section-title">

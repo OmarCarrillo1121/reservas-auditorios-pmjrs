@@ -2,6 +2,7 @@
     import MainHeader from '$lib/components/header/MainHeader.svelte';
     import Navbar from '$lib/components/navbar/Navbar.svelte';
     import { mdiHomeOutline, mdiTicketOutline, mdiCalendarMonthOutline, mdiPlus } from '@mdi/js';
+    import BotonPerfilUsuario from '$lib/components/buttons/BotonPerfilUsuario.svelte';
 	let { children } = $props();
     const navigationItems = [
         {
@@ -31,7 +32,12 @@
     ]
 </script>
 
-<MainHeader/>
+<MainHeader>
+    <BotonPerfilUsuario
+        slot="acciones"
+        accion={() => navigateTo("/login")}
+    ></BotonPerfilUsuario>
+</MainHeader>
 <Navbar navbarItems={navigationItems}></Navbar>
 
 <main>

@@ -6,6 +6,7 @@
     import Boton from "../buttons/BotonSimple.svelte";
     let popupModal = $state(false);
     const { columns, rows } = $props();
+    console.log (columns, rows)
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -20,26 +21,31 @@
     <tbody>
         {#each rows as row}
             <tr>
-                <td>{row.id}</td>
-                <td>{row.auditorium}</td>
-                <td>{row.date}</td>
-                <td>{row.startTime}</td>
-                <td>{row.endTime}</td>
-                <td>{row.duration}</td>
-                <td>{row.status}</td>
+                {#each columns as col}
+                    <td>{row[col.name]}</td>
+                {/each}
+
                 <td>
                     <div class="contenedor-acciones">
                         <button onclick={() => (popupModal = true)}>
                             <Icon
                                 path={mdiSquareEditOutline}
-                                size={32}
+                                size={24}
                                 color={"var(--color-advertencia)"}
-                            ></Icon>
+                            />
                         </button>
                         <Tooltip>Editar</Tooltip>
 
+                        <button>
+                            <Icon
+                                path={mdiTrashCanOutline}
+                                size={24}
+                                color={"var(--color-error)"}
+                            />
+                        </button>
+                        <Tooltip>Eliminar</Tooltip>
+
                         <Toggle checked={true}></Toggle>
-                        
                     </div>
                 </td>
             </tr>
