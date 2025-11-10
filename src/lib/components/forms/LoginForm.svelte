@@ -22,7 +22,7 @@
 </div> -->
 
     <div class="formulario-container">
-     <form action="#"> 
+     <form> 
         
        <h4>Iniciar sesión</h4>
        <!--div class="cajita">
@@ -46,7 +46,7 @@
        <br>
        <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button-->
        <br>
-       <Boton tipo={'exito'} textoBoton={'Ingresar'} onclick={() => navigateTo("/reservas")} ></Boton>
+       <Boton botonId={'botonIngresar'} botonType={'button'} tipo={'exito'} textoBoton={'Ingresar'} accion={() => navigateTo("/reservas")} ></Boton>
        <br>
        <br>
        <p>Olvidé mi contraseña</p>

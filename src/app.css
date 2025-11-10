@@ -5,16 +5,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary-50: #fff5f2;
-  --color-primary-100: #fff1ee;
-  --color-primary-200: #ffe4de;
-  --color-primary-300: #ffd5cc;
-  --color-primary-400: #ffbcad;
-  --color-primary-500: #fe795d;
-  --color-primary-600: #ef562f;
-  --color-primary-700: #eb4f27;
-  --color-primary-800: #cc4522;
-  --color-primary-900: #a5371b;
+  --color-primary-50: #000;
+  --color-primary-100: #000;
+  --color-primary-200: #000;
+  --color-primary-300: #000;
+  --color-primary-400: #000;
+  --color-primary-500: #000;
+  --color-primary-600: #000;
+  --color-primary-700: #000;
+  --color-primary-800: #000;
+  --color-primary-900: #000;
 
   --color-secondary-50: #f0f9ff;
   --color-secondary-100: #e0f2fe;
@@ -155,6 +155,11 @@ h2 {
 h3 {
   font-weight: 400;
   font-size: 1.2rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.1rem;
 }
 
 .container {

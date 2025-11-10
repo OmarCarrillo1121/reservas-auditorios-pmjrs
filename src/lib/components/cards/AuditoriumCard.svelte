@@ -1,16 +1,15 @@
 <script>
-    export let auditorioData = {};
+    export let auditorioData = [];
 </script>
 
 <!-- AQUI INICIA EL HTML -->
 <section class="card-container">
     <div class="card-header">IMAGEN</div>
     <div class="card-body">
-        <p>{auditorioData.name}</p>
-        <p>{auditorioData.nombre}</p>
-        <p>UBICACION: {auditorioData.ubicacion}</p>
-        <p>EDIFICIO: {auditorioData.edificio}</p>
-        <p>CAPACIDAD: {auditorioData.capacidad}</p>
+        <p>{auditorioData.nombreRecinto}</p>
+        <p>UBICACION: {auditorioData.ubicacionRecinto}</p>
+        <p>EDIFICIO: {auditorioData.edificioRecinto}</p>
+        <p>CAPACIDAD: {auditorioData.capacidadRecinto}</p>
     </div>
     <div class="card-footer">
         <button>Ver ubicacion</button>

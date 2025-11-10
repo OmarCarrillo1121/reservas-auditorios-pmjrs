@@ -1,4 +1,4 @@
-const reservationsData = {
+export const tablaRecintos = {
     columns: [
         {
             name: 'id',
@@ -6,33 +6,28 @@ const reservationsData = {
             visible: true
         },
         {
-            name: 'auditorium',
-            displayName: 'Id',
+            name: 'nombreRecinto',
+            displayName: 'Nombre del recinto',
             visible: true
         },
         {
-            name: 'date',
-            displayName: 'Fecha de reservacion',
+            name: 'ubicacionRecinto',
+            displayName: 'Ubicacion del recinto',
             visible: true
         },
         {
-            name: 'startTime',
-            displayName: 'Hora de inicio',
+            name: 'edificioRecinto',
+            displayName: 'Edificio',
             visible: true
         },
         {
-            name: 'endTime',
-            displayName: 'Hora de termino',
+            name: 'capacidadRecinto',
+            displayName: 'Capacidad del recinto',
             visible: true
         },
         {
-            name: 'duration',
-            displayName: 'Duracion',
-            visible: true
-        },
-        {
-            name: 'status',
-            displayName: 'Estatus',
+            name: 'imagenesRecinto',
+            displayName: 'Imagenes',
             visible: true
         },
         {
@@ -94,5 +89,3 @@ const reservationsData = {
         },
     ]
 };
-
-export default reservationsData;

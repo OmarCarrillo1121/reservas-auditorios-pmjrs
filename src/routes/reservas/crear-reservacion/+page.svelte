@@ -98,223 +98,40 @@
 {/if} -->
 
 <script>
-    import CreateReservationForm from "$lib/components/forms/CreateReservationForm.svelte";
-    import InputField from "$lib/components/input/InputField.svelte";
-    import SelectField from "$lib/components/input/SelectField.svelte";
-    import HorizontalCalendar from "$lib/components/booking/HorizontalCalendar.svelte";
-    import TimeChips from "$lib/components/booking/TimeChips.svelte";
-    import Boton from "$lib/components/buttons/BotonSimple.svelte";
+	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
 
-    import { postReservacion } from "$lib/services/reservaciones.service";
+	let nombre = '';
+	let email = '';
+	let mensaje = '';
 
-    let nuevaReservacion = {
-        idRecinto: "",
-        idSolicitante: "",
-        fechaEvento: "",
-        horaInicio: "",
-        horaTermino: "",
-        nombreEvento: "",
-        tipoEvento: "",
-        origenEvento: ""
-    };
-    $: console.log(nuevaReservacion);
-
-    let auditoriums = [];
-    let selectedAuditorium = "";
-    let selectedDate = null;
-    let availableTimes = ["07:00", "08:00", "09:00"];
-    let selectedTimes = [];
-    $: currentStep = 1;
-    function changeStep(valor) {
-        if (valor === 'ant' && currentStep >= 1) {
-            currentStep --
-            console.log(currentStep)
-        }
-        if (valor === 'sig' && currentStep <= 4) {
-            currentStep ++
-            console.log(currentStep)
-        }   
-    } 
+	$: valido = nombre.trim() && email.includes('@') && mensaje.length > 10;
 </script>
 
-<div class="container">
-    <div class="contenedor-formulario">
-        {#if currentStep === 1}
-            <h4 class="section-title">Seleccionar fecha</h4>
-            <HorizontalCalendar
-                {selectedDate}
-                on:select={(e) => (selectedDate = e.detail)}
-            />
+<form method="POST" use:enhance class="space-y-4 p-4 border rounded-md max-w-md mx-auto">
+	<h2>Formulario de contacto</h2>
 
-            <h4 class="section-title">Fechas disponibles</h4>
-            <TimeChips
-                {availableTimes}
-                bind:selectedTimes
-                on:update={(e) => (selectedTimes = e.detail)}
-            />
-            <Boton botonId={'ant'} botonType={"button"} tipo={'secundario'} textoBoton={'Anterior'} accion={() => changeStep('ant')}/>
-            <Boton botonId={'sig'} botonType={"button"} tipo={'primario'} textoBoton={'Siguiente'} accion={() => changeStep('sig')}/>
-            <Boton botonId={'enviar'} botonType={"submit"} tipo={'primario'} textoBoton={'Crear reservacion'} accion={() => postReservacion(nuevaReservacion)}/>
-        {/if}
-        {#if currentStep === 2}
-            <form class="container form-container bb" action="#">
-                <SelectField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <Boton botonId={'ant'} botonType={"button"} tipo={'secundario'} textoBoton={'Anterior'} accion={() => changeStep('ant')}/>
-                <Boton botonId={'sig'} botonType={"button"} tipo={'primario'} textoBoton={'Siguiente'} accion={() => changeStep('sig')}/>
-            </form>
-        {/if}
-        {#if currentStep === 3}
-            <form class="container form-container bb" action="#">
-                <SelectField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <Boton botonId={'ant'} botonType={"button"} tipo={'secundario'} textoBoton={'Anterior'} accion={() => changeStep('ant')}/>
-                <Boton botonId={'sig'} botonType={"button"} tipo={'primario'} textoBoton={'Siguiente'} accion={() => changeStep('sig')}/>
-            </form>
-        {/if}
-        {#if currentStep === 4}
-            <form class="container form-container bb" action="#">
-                <SelectField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <InputField
-                    id="nombreRecinto"
-                    type="text"
-                    label={"Nombre del recinto"}
-                    bind:value={nuevaReservacion.nombreRecinto}
-                />
-                <Boton botonId={'ant'} botonType={"button"} tipo={'secundario'} textoBoton={'Anterior'} accion={() => changeStep('ant')}/>
-                <Boton botonId={'sig'} botonType={"button"} tipo={'primario'} textoBoton={'Siguiente'} accion={() => changeStep('sig')}/>
-            </form>
-        {/if}
-    </div>
-</div>
+	<label>
+		Nombre:
+		<input type="text" name="nombre" bind:value={nombre} required />
+	</label>
 
-<!-- <form action="">
-    <div>
-        <label for="auditorio">Recinto</label>
-        <select id="auditorio" name="Auditorio">
-            <option value="1">Auditorio1</option>
-            <option value="2">Auditorio2</option>
-            <option value="3">Auditorio3</option>
-            <option value="4">Auditorio4</option>
-            <option value="5">Auditorio5</option>
-        </select>
-    </div>
-    <div>
-        <label for="fecha_reservacion">Fecha de reservacion</label>
-        <input id="fecha_reservacion" type="text" />
-    </div>
-    <div>
-        <label for="hora_inicio">Hora de inicio</label>
-        <input id="Hora_inicio" type="text" />
-    </div>
-    <div>
-        <label for="hora_termino">Hora de termino</label>
-        <input id="hora_termino" type="text" />
-    </div>
-    <div>
-        <label for="">Nombre del evento</label>
-        <input id="" type="text" />
-    </div>
-    <div>
-        <label for="tipo_evento">Tipo de evento</label>
-        <select id="tipo_evento" name="Auditorio">
-            <option value="1">Taller</option>
-            <option value="2">Conferencia</option>
-            <option value="3">Conversatorio</option>
-            <option value="4">Charlas</option>
-            <option value="5">Auditorio5</option>
-        </select>
-    </div>
-    <div>
-        <label for="tipo_evento">Origen de evento</label>
-        <select id="tipo_evento" name="Auditorio">
-            <option value="1">Taller</option>
-            <option value="2">Conferencia</option>
-            <option value="3">Conversatorio</option>
-            <option value="4">Charlas</option>
-            <option value="5">Auditorio5</option>
-        </select>
-    </div>
-    <div>
-        <label for="">Ponentes</label>
-        <input id="" type="text" />
-        <button id="agregar_ponente" title="Agregar" type="button"
-            >Agregar</button
-        >
-    </div>
-    <div>
-        <label for="presidium">Integrantes del presidium</label>
-        <input id="presidium" type="text" />
-        <button id="agregar_presidium" title="Agregar" type="button"
-            >Agregar</button
-        >
-    </div>
-    <div>
-        <label for="recursos">Recursos requeridos</label>
-        <select id="recursos" name="Recursos">
-            <option value="1">Taller</option>
-            <option value="2">Conferencia</option>
-            <option value="3">Conversatorio</option>
-            <option value="4">Charlas</option>
-            <option value="5">Auditorio5</option>
-        </select>
-    </div>
-    <button type="submit" title="Enviar">Crear Reservacion</button>
-</form> -->
+	<label>
+		Correo:
+		<input type="email" name="email" bind:value={email} required />
+	</label>
 
-<style>
-    .form-container {
-        width: 400px;
-    }
+	<label>
+		Mensaje:
+		<textarea name="mensaje" bind:value={mensaje} required></textarea>
+	</label>
 
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: solid 1px #000;
-    }
-</style>
+	<button type="submit" disabled={!valido}>Enviar</button>
+
+	{#if $page.form?.success}
+		<p class="text-green-600 mt-2">✅ Mensaje enviado correctamente.</p>
+	{:else if $page.form?.error}
+		<p class="text-red-600 mt-2">❌ {$page.form.error}</p>
+	{/if}
+</form>
+
