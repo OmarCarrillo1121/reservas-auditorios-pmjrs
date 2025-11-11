@@ -44,7 +44,7 @@
 
     // Límites de día
     function esDiaValido(fecha){
-      const dia = new Date(fecha).getDay();
+      const dia = new Date(fecha+'T00:00:00').getUTCDay();
       return dia !== 0; 
     }
 
@@ -92,20 +92,24 @@
     function corregirHorario() {
         const inicioNum = convertirHoraANumero(horaInicio);
         const finNum = convertirHoraANumero(horaFin);
-        let horarioCorregido =false;
+        let horarioCorregido = false;
 
         if (inicioNum < 9) {
             horaInicio = '09:00';
             horarioCorregido = true;
         }
-        if (finNum > 20) {
-            horaFin = '20:00';
-            horarioCorregido = true;
+        
+        if (finNum > 20){
+          horaFin= '20:00';
+          horarioCorregido = true;
         }
+
         if (finNum <= inicioNum) {
-            horaFin = '20:00'; 
+          const nuevaHoraFinNum=Math.min(20, Math.floor(inicioNum)+1);
+            horaFin = `${String(nuevaHoraFinNum).padStart(2, '0')}:00`;
             horarioCorregido = true;
         }
+
         if (horarioCorregido){
           mostrarError= true;
         }
@@ -125,9 +129,9 @@
         corregirHorario();
        } 
     }
-    $: if (typeof fechaEvento === 'undefined'){
-      fechaEvento = obtenerProximaFechaValida();
-    }
+    $: if (fechaEvento < fechaMinima || typeof fechaEvento === 'undefined' || !esDiaValido(fechaEvento)) {
+  fechaEvento = obtenerProximaFechaValida();
+  }
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -287,10 +291,9 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.5rem;
-  background-color: white;
+  background-color: var(--color-fondo);
   border-radius: 0.5rem;
   border: 1px solid var(--color-bordes);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }    
 .fila-formulario {
   display: grid;
