@@ -15,7 +15,7 @@
         id="botonPerfil"
         type="button"
     >
-        <Icon path={mdiAccount} size={48} color={"var(--color-fondo)"}></Icon>
+        <Icon path={mdiAccount} size={40} color={"var(--color-fondo)"}></Icon>
     </button>
     <Dropdown triggeredBy="#botonPerfil">
         <DropdownHeader>
@@ -50,8 +50,8 @@
         align-items: center;
         border-radius: 50%;
         background-color: var(--color-acento);
-        height: 4rem;
-        width: 4rem;
+        height: 3.5rem;
+        width: 3.5rem;
     }
 
     .boton-perfil-usuario:hover {

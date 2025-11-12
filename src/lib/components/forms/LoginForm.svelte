@@ -2,7 +2,22 @@
     import { navigateTo } from "$lib/utils/navigate.utils";
     import InputField from "../input/InputField.svelte";
     import Boton from "$lib/components/buttons/BotonSimple.svelte";
-
+    import SectionHeader from "../header/SectionHeader.svelte";
+    import { loginUsuario } from "$lib/services/auth.service";
+    let datosParaLogin = {
+        username: "",
+        password: "",
+    };
+    async function loguearUsuario() {
+        try {
+            console.log(datosParaLogin);
+            const response = await loginUsuario(datosParaLogin);
+            console.log("Usuario logueado:", response);
+            alert(`Usuario logueado:${response}`)
+        } catch (err) {
+            alert("Error al loguear usuario:", err);
+        }
+    }
 </script>
 
 <!-- AQUI INICIA EL HTML -->
@@ -21,34 +36,37 @@
     </form>
 </div> -->
 
-    <div class="formulario-container">
-     <form> 
-        
-       <h4>Iniciar sesión</h4>
-       <!--div class="cajita">
+<div class="formulario-container">
+    <SectionHeader titulo="Iniciar sesion"></SectionHeader>
+    <form>
+        <!--div class="cajita">
        <label for="Usuario">Usuario</label>
        <br>
      	 <input type="usuario" class="cajita-input" placeholder="Ingrese Usuario" id="Usuario">
        </div-->
-       <div class="cajita">
-       <InputField label={'Usuario'}></InputField>
-       </div>
-       <div class="cajita">
-       <InputField label={'Contraseña'}></InputField>
-       </div>
-       <!--div class="cajita">
+        <div class="cajita">
+            <InputField label={"Usuario"} bind:value={datosParaLogin.username}></InputField>
+        </div>
+        <div class="cajita">
+            <InputField label={"Contraseña"} bind:value={datosParaLogin.password}></InputField>
+        </div>
+        <!--div class="cajita">
        <label for="Contraseña">Contraseña</label>
        <br>
        <input type="password" class="cajita-input" placeholder="Ingrese Contraseña" id="Contraseña">
        </div>
        <br>
        <button type="button" onclick={() => navigateTo("/reservas")}>Ingresar</button-->
-       <div class="cajita">
-       <Boton tipo={'exito'} textoBoton={'Ingresar'} accion={() => navigateTo("/reservas")} ></Boton>
-       </div>
-       <p>Olvidé mi contraseña</p>
-     </form>
-    </div>  
+        <Boton
+            botonId={"botonIngresar"}
+            botonType={"button"}
+            tipo={"exito"}
+            textoBoton={"Ingresar"}
+            accion={() => loguearUsuario()}
+        ></Boton>
+    </form>
+    <p>Olvidé mi contraseña</p>
+</div>
 
 <!-- AQUI TERMINA EL HTML -->
 
@@ -96,33 +114,32 @@
       border: 3px solid #000;
      } */
 
-     .formulario-container {
-      text-align: center;
-      width: 70%;
-      margin: 30px auto;
-      margin-top: 50px;
-      padding: 5px;
-      height: 500px;
-     }
+    .formulario-container {
+        text-align: center;
+        width: 70%;
+        margin: 30px auto;
+        margin-top: 50px;
+        padding: 5px;
+        height: 500px;
+    }
 
-     .cajita{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-basis: 80px;
-     margin: 25px 2px;
-     padding: 7px;
-     }
+    .cajita {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 80px;
+        margin: 5px 2px;
+        padding: 7px;
+    }
 
-     /*.cajita-input{
-       background-color: rgb(219, 214, 214); 
-       padding: 7px;
-     }
+    .cajita-input {
+        background-color: rgb(219, 214, 214);
+        padding: 7px;
+    }
     button {
-    background-color: rgb(130, 130, 218);
-    padding: 7px;
-    width: 80%;
-    margin: 5px;
-    }*/
-    
+        background-color: rgb(130, 130, 218);
+        padding: 7px;
+        width: 80%;
+        margin: 5px;
+    }
 </style>
