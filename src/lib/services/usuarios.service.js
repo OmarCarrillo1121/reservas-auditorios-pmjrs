@@ -1,6 +1,7 @@
 import { api } from "./api.service";
 
 const urlBase = "/usuarios"
+const urlBaseAuthRegister = "/auth/register"
 const modelName = 'usuarios'
 
 export async function getAllUsuarios() {
@@ -12,3 +13,6 @@ export async function getAllUsuarios() {
     throw err;
   }
 }
+
+
+

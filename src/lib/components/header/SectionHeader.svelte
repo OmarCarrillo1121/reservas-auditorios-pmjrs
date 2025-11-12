@@ -3,12 +3,12 @@
 </script>
 
 <section>
-    <h3>{titulo}</h3>
+    <h2>{titulo}</h2>
 </section>
 
 <style>
     section {
-        padding: 1rem 0;
+        padding: 2rem 0 1rem 0;
     }
 
     h3 {

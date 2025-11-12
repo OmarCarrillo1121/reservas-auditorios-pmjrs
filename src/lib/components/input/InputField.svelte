@@ -1,5 +1,9 @@
 <script>
-    let { id, type, label, placeholder, value } = $props();
+    export let id = "";
+    export let type = "text";
+    export let label = "";
+    export let placeholder = "";
+    export let value = "";
 </script>
 
 <!-- 
@@ -10,11 +14,14 @@ SPECIALIZED: number, range, date, time, datetime-local, month, week, color, file
 BUTTONS: submit, reset, button, image
 HIDDEN: hidden
  -->
-<div class='input-container'>
-    <label for={id}>
-        {label}
-    </label>
-    <input id={id} name={id} type={type} placeholder={placeholder} bind:value/>
+<div class="input-container">
+    <label for={id}>{label}</label>
+    <input 
+        id={id} 
+        name={id} 
+        type={type} 
+        placeholder={placeholder} 
+        bind:value />
 </div>
 
 <style>
@@ -27,6 +34,7 @@ HIDDEN: hidden
         border-radius: 1rem;
         background-color: var(--color-bg-cards);
         width: 100%;
+        padding: 1rem;
     }
     .input-container {
         display: flex;
