@@ -10,6 +10,7 @@
 		"prepare": "svelte-kit sync || echo ''"
 	},
 	"devDependencies": {
+		"@event-calendar/core": "^4.7.1",
 		"@sveltejs/adapter-auto": "^6.0.0",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
