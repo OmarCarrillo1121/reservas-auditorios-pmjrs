@@ -46,7 +46,7 @@
     
     <div class="contenedor1 container f-row f-center-center">
         <img class="imagen" src="/svg/unam-logo.svg" alt="logo unam">
-        <img class="imagen" src="##" alt="logo unam">
+        <img class="imagen" src="/svg/lema-logo.png" alt="logo unam">
         <img class="imagen" src="/svg/fca-logo.svg" alt="logo fca">
     </div>
     
@@ -72,16 +72,18 @@
             <IntegrantesCard {integrante} />
         {/each}
     </div>
-
-    <footer>
+    <div class="creditos-footer">
         <p class="footer-text">
             &copy; 2025. Hecho en México.
             <span class="license">Bajo la licencia de Creative Commons Universal 1.0</span>
         </p>
-    </footer>
+    </div>
 </div>
 <!-- AQUI TERMINA EL HTML -->
 <style>
+    .h1,h2,h3,h4,h5,h6{
+        font-family: var(--fuente-titulos);
+    }
     .team-page {
         background-color: var(--color-primario);
         color: white;
@@ -136,24 +138,27 @@
         object-fit: contain;
         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
-     footer {
-        margin-top: auto;
-        padding:2rem 0 1rem 0;
-        border-top: 1px solid var(--color-primario-75);
+     .creditos-footer {
+        margin-top: 4rem;
+        padding:2rem 0;
+        border-top: 2px solid var(--color-acento);
         text-align: center;
         width: 100%;
+        background: var(--color-secundario);
     }
     .footer-text {
         margin: 0;
         padding: 0.5rem 0;
-        color: var(--color-primario-50);
-        font-size: 0.9rem;
+        color: white;
+        font-size: 1rem;
+        font-family: var(--fuente-cuerpo);
     }
     .license {
         display: block;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         margin-top: 0.5rem;
-        color: var(--color-primario-25);
+        color: var(--color-acento);
+        font-family: var(--fuente-cuerpo);
     }
 
     .integrantes-grid {
