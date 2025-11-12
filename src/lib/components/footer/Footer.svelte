@@ -12,24 +12,24 @@
         },
         {
             nombre: "Rocio",
-            descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
+            descripcion: "Estudiante de Informática (Desarrollador Frontend en formación)Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
             imagen: "/images/integrantes/foto2.png",
-            linkedin: "https://mx.linkedin.com/",
-            github: "https://github.com/",
-            email: "mail@mail.com"
+            linkedin: "https://www.linkedin.com/in/rocio-santana-8a1a15346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            github: "https://github.com/rocio1984",
+            email: "rocio31chan@gmail.com"
         },
         {
             nombre: "Ruben Omar",
             descripcion: "Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.",
-            imagen: "/images/integrantes/foto3.png",
-            linkedin: "https://mx.linkedin.com/",
-            github: "https://github.com/",
-            email: "mail@mail.com"
+            imagen: "/images/integrantes/foto4.png",
+            linkedin: "www.linkedin.com/in/omar-rodriguez-carrillo",
+            github: "https://github.com/OmarCarrillo1121",
+            email: "omarcarrillo1121@gmail.com"
         },
         {
             nombre: "Antonio",
             descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
-            imagen: "/images/integrantes/foto4.png",
+            imagen: "/images/integrantes/foto3.png",
             linkedin: "https://mx.linkedin.com/",
             github: "https://github.com/",
             email: "mail@mail.com"
@@ -74,7 +74,10 @@
     </div>
 
     <footer>
-        2025. Hecho en México. Bajo la licencia de Creative Commons Universal 1.0
+        <p class="footer-text">
+            &copy; 2025. Hecho en México.
+            <span class="license">Bajo la licencia de Creative Commons Universal 1.0</span>
+        </p>
     </footer>
 </div>
 <!-- AQUI TERMINA EL HTML -->
@@ -127,32 +130,43 @@
         margin-bottom: 2rem;
     }
 
-    .imagen {
+     .imagen {
         width: 140px;
         height: auto;
         object-fit: contain;
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+     footer {
+        margin-top: 4rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--color-primario-75);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--color-primario-50);
+    }
+    .footer-text {
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+    .license {
+        display: block;
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
+        color: var(--color-primario-25);
     }
 
     .integrantes-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(280px, 320px));
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
         grid-template-rows: repeat(2, auto);
-        gap: 1.5rem;
-        width: 80%;
+        gap: 2rem;
+        width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
         justify-items: center;
         justify-content: center;
-        max-width: 800px;
+        max-width: 1000px;
     }
-
-    footer {
-        margin-top: 3rem;
-        text-align: center;
-        font-size: 0.75rem;
-        color: var(--color-primario-75);
-    }
-    
     .unam-info {
         text-align: center;
         margin-bottom: 2rem;
