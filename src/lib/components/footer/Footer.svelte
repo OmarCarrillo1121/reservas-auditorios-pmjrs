@@ -12,9 +12,9 @@
         },
         {
             nombre: "Rocio",
-            descripcion: "Estudiante de Informática (Desarrollador Frontend en formación)Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
+            descripcion: "Estudiante de Informática (Desarrollador Frontend en formación) Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
             imagen: "/images/integrantes/foto2.png",
-            linkedin: "https://www.linkedin.com/in/rocio-santana-8a1a15346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            linkedin: "www.linkedin.com/in/rocio-santana-8a1a15346",
             github: "https://github.com/rocio1984",
             email: "rocio31chan@gmail.com"
         },
@@ -87,14 +87,14 @@
         color: white;
         padding: 2rem var(--container-padding);
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
-
     .Centrado {
         text-align: center;
         color: white;
         margin: 2rem 0;
     }
-
     .team-intro {
         align-items: center;
         text-align: center;
@@ -137,21 +137,22 @@
         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
     }
      footer {
-        margin-top: 4rem;
-        padding-top: 1.5rem;
+        margin-top: auto;
+        padding:2rem 0 1rem 0;
         border-top: 1px solid var(--color-primario-75);
         text-align: center;
-        font-size: 0.85rem;
-        color: var(--color-primario-50);
+        width: 100%;
     }
     .footer-text {
         margin: 0;
         padding: 0.5rem 0;
+        color: var(--color-primario-50);
+        font-size: 0.9rem;
     }
     .license {
         display: block;
         font-size: 0.7rem;
-        margin-top: 0.2rem;
+        margin-top: 0.5rem;
         color: var(--color-primario-25);
     }
 
