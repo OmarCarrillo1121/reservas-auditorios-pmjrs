@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { api } from "$lib/services/api.service.js";
-    import { getAuditorios } from "$lib/services/auditorios.service";
+    import { getRecintos } from "$lib/services/recintos.service";
     import AuditoriumCard from "$lib/components/cards/AuditoriumCard.svelte";
     import Footer from "$lib/components/footer/Footer.svelte";
     import { Carousel, Controls, CarouselIndicators } from "flowbite-svelte";
@@ -15,20 +15,12 @@
 
     onMount(async () => {
         try {
-            listaAuditorios = await getAuditorios();
+            listaAuditorios = await getRecintos();
             console.log(listaAuditorios);
         } catch (err) {
             console.warn(err);
         }
     });
-
-    const headerButtons = [
-        {
-            tipo: "secundario",
-            label: "Iniciar sesion",
-            accion: () => navigateTo("/login"),
-        },
-    ];
 
     const navigationItems = [
         {
@@ -58,11 +50,18 @@
     ];
 </script>
 
-<MainHeader buttons={headerButtons}></MainHeader>
+<MainHeader>
+    <Boton 
+        slot="acciones"
+        botonId={'iniciarSesion'}
+        botonType={'button'}
+        tipo={"primario-acento"} 
+        textoBoton={"Iniciar sesion"} 
+        accion= {() => navigateTo("/login")}
+    >
+    </Boton>
+</MainHeader>
 <Navbar navbarItems={navigationItems}></Navbar>
-
-<Boton tipo={'exito'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/reservas")} ></Boton>
-<Boton tipo={'error'} textoBoton={'Iniciar sesion'} accion={() => navigateTo("/login")} ></Boton>
 
 <section id="proximosEventos" class="container">
     <section class="section-title">

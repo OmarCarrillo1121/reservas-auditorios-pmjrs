@@ -22,7 +22,7 @@
 </div> -->
 
     <div class="formulario-container">
-     <form action="#"> 
+     <form> 
         
        <h4>Iniciar sesión</h4>
        <!--div class="cajita">

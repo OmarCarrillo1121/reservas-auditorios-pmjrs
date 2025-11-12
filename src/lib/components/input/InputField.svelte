@@ -1,9 +1,5 @@
 <script>
-    export let id = "";
-    export let type = "";
-    export let label = "";
-    export let placeholder = "";
-    export let value = "";
+    let { id, type, label, placeholder, value } = $props();
 </script>
 
 <!-- 

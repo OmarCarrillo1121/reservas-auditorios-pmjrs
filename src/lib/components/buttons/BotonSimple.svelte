@@ -9,6 +9,7 @@
     $: claseBoton = `boton boton-${tipo}`;
 </script>
 
+<!-- <button type="button|submit|reset"></button> -->
 <button id={botonId} type={botonType} class={claseBoton} on:click={accion}>
     {textoBoton}
 </button>
@@ -29,7 +30,17 @@
     }
 
     .boton-primario:hover { 
-        background-color: #1B7B5C; 
+        background-color: var(--color-primario-hover); 
+    }
+
+    .boton-primario-acento {
+        background-color: var(--color-acento);
+        color: var(--color-fondo);
+        font-weight: 600;
+    }
+
+    .boton-primario-acento:hover { 
+        background-color: var(--color-acento-hover); 
     }
 
     .boton-secundario {
@@ -38,7 +49,7 @@
     }
 
     .boton-secundario:hover { 
-        background-color: var(--color-fondo-tarjeta); 
+        background-color: var(--color-secundario-hover); 
     }
 
     .boton-exito {
