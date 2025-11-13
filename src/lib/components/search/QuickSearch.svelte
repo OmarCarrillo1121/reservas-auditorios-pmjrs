@@ -170,7 +170,7 @@
         <div class="campo-grupo accion-principal">
             <button class="boton boton-primario" on:click={() => {
                 if (validarTodo()){
-                  handleNavigate('user/dashboard');
+                  handleNavigate('reservas/crear-reservacion');
                 }
             }}>
                 Consultar

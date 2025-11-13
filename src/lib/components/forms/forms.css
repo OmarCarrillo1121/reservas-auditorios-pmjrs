@@ -1,0 +1,29 @@
+.form-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.container-input {
+    width: 100%;
+}
+
+.doble-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}

@@ -30,7 +30,7 @@ HIDDEN: hidden
     }
     input {
         height: 3rem;
-        border: solid 1px #000;
+        border: solid 1px var(--color-bordes);
         border-radius: 1rem;
         background-color: var(--color-bg-cards);
         width: 100%;

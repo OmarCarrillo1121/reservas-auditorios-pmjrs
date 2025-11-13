@@ -1,19 +1,32 @@
 <script>
-    let { id, label, value, optionsList = [] } = $props();
+    import Icon from "../icons/Icon.svelte";
+    export let id = "";
+    export let label = "";
+    export let optionsList = "";
+    export let boton = null;
+    export let value = "";
 </script>
 
-<div class='input-container'>
+<div class="input-container">
     <label for={id}>
         {label}
     </label>
-    <select id={id} name={id} bind:value>
-        <option value="0">Sin seleccion</option>
-        {#if optionsList.length > 0}
-            {#each optionList as option}
-            <option value="">{option.name}</option>
-            {/each} 
+    <div class="input-area-container">
+        <select {id} name={id} bind:value>
+            <option value="0">Sin seleccion</option>
+            {#if optionsList.length > 0}
+                {#each optionsList as option}
+                    <option value="">{option.name}</option>
+                {/each}
+            {/if}
+        </select>
+        {#if boton}
+            <div class="contenedor-icono">
+                <Icon path={boton} size={32} color={"var(--color-fondo)"}
+                ></Icon>
+            </div>
         {/if}
-    </select>
+    </div>
 </div>
 
 <style>
@@ -22,7 +35,7 @@
     }
     select {
         height: 3rem;
-        border: solid 1px #000;
+        border: solid 1px var(--color-bordes);
         border-radius: 1rem;
         background-color: var(--color-bg-cards);
         width: 100%;
@@ -32,5 +45,24 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    .input-area-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .contenedor-icono {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--color-texto-secundario);
+        border-radius: 50%;
     }
 </style>
