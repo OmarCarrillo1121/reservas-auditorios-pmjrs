@@ -19,7 +19,7 @@
             email: "rocio31chan@gmail.com"
         },
         {
-            nombre: "Ruben Omar",
+            nombre: "Omar",
             descripcion: "Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.",
             imagen: "/images/integrantes/foto4.png",
             linkedin: "www.linkedin.com/in/omar-rodriguez-carrillo",
@@ -81,7 +81,7 @@
 </div>
 <!-- AQUI TERMINA EL HTML -->
 <style>
-    h2,h3,h4{
+    h1,h2,h3,h4{
         font-family: var(--fuente-titulos);
     }
     .team-page {
@@ -91,11 +91,13 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     .Centrado {
         text-align: center;
         color: white;
         margin: 2rem 0;
+        font-size: 2rem;
     }
     .team-intro {
         align-items: center;
@@ -108,6 +110,7 @@
         color: white;
         margin: 0 0 1.5rem 0;
         font-weight: 600;
+        font-size: 2.5rem;
     }
     .description-text {
         max-width: 700px;
@@ -115,6 +118,7 @@
         color: rgba(255, 255, 255, 0.95);
         padding: 0 1rem;
         margin: 0;
+        font-size: 1.1rem;
     }
 
     .contenedor1 {
@@ -145,7 +149,7 @@
         border-top: 2px solid var(--color-acento);
         text-align: center;
         width: 100%;
-        background: var(--color-primario-hover);
+        background: var(--color-primario-50);
     }
     .footer-text {
         margin: 0;
@@ -185,6 +189,7 @@
         color: white;
         font-weight: 400;
         line-height: 1.4;
+        font-size: 1.3rem;
     }
 
     .hackathon-title {
@@ -195,6 +200,7 @@
         border: 2px solid var(--color-acento);
         border-radius: 10px;
         display: inline-block;
+        font-size: 1.5rem;
     }
 
     @media (max-width: 768px) {
@@ -214,5 +220,6 @@
             width: 100%;
             gap: 1.5rem;
         }
+
     }
 </style>
