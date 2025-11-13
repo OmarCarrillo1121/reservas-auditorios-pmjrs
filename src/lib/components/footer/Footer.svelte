@@ -14,7 +14,7 @@
             nombre: "Rocio",
             descripcion: "Estudiante de Informática (Desarrollador Frontend en formación) Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
             imagen: "/images/integrantes/foto2.png",
-            linkedin: "www.linkedin.com/in/rocio-santana-8a1a15346",
+            linkedin: "https://www.linkedin.com/in/rocio-santana-8a1a15346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
             github: "https://github.com/rocio1984",
             email: "rocio31chan@gmail.com"
         },
@@ -22,7 +22,7 @@
             nombre: "Omar",
             descripcion: "Desarrollador fullstack con 3 años de experiencia. Lideré el desarrollo de la aplicación y contribuí al diseño, frontend, backend y base de datos.",
             imagen: "/images/integrantes/foto4.png",
-            linkedin: "www.linkedin.com/in/omar-rodriguez-carrillo",
+            linkedin: "https://www.linkedin.com/in/omar-rodriguez-carrillo?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
             github: "https://github.com/OmarCarrillo1121",
             email: "omarcarrillo1121@gmail.com"
         },
