@@ -185,18 +185,18 @@
     }
 
     .unam-info h4 {
-        margin: 0.5rem 0;
+        margin: 0.3rem 0;
         color: white;
         font-weight: 400;
-        line-height: 1.4;
+        line-height: 1.3;
         font-size: 1.3rem;
     }
 
     .hackathon-title {
         color: var(--color-acento);
-        margin: 1.5rem 0;
+        margin: 1rem 0;
         font-weight: 500;
-        padding: 1rem 2rem;
+        padding: 0.8rem 1.5rem;
         border: 2px solid var(--color-acento);
         border-radius: 10px;
         display: inline-block;
