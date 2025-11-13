@@ -1,17 +1,5 @@
 <script>
 
-</script>
-
-<section>
-  <h3>Tarjeta de reservaciones</h3>
-</section>
-
-<style>
-
-</style>
-
-<!-- <script>
-
   let searchQuery = "";
   let orderBy = "";
 
@@ -166,4 +154,4 @@
   .ordenar select::-ms-expand {
     display: none;
   }
-</style> -->
+</style>
