@@ -81,7 +81,7 @@
 </div>
 <!-- AQUI TERMINA EL HTML -->
 <style>
-    .h1,h2,h3,h4,h5,h6{
+    h2,h3,h4{
         font-family: var(--fuente-titulos);
     }
     .team-page {
@@ -100,19 +100,19 @@
     .team-intro {
         align-items: center;
         text-align: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        max-width: 800px;
     }
 
     .team-intro h1 {
         color: white;
-        margin: 0;
+        margin: 0 0 1.5rem 0;
+        font-weight: 600;
     }
-
     .description-text {
-        max-width: 800px;
-        line-height: 1.4;
-        color: #f0f0f0;
+        max-width: 700px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.95);
         padding: 0 1rem;
         margin: 0;
     }
@@ -121,8 +121,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 2rem;
-        gap: 3rem;
+        margin-bottom: 2.5rem;
+        gap: 4rem;
+        padding: 2rem;
     }
 
     .contenedor2 {
@@ -144,7 +145,7 @@
         border-top: 2px solid var(--color-acento);
         text-align: center;
         width: 100%;
-        background: var(--color-secundario);
+        background: var(--color-primario-hover);
     }
     .footer-text {
         margin: 0;
@@ -152,10 +153,11 @@
         color: white;
         font-size: 1rem;
         font-family: var(--fuente-cuerpo);
+        font-weight: 500;
     }
     .license {
         display: block;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         margin-top: 0.5rem;
         color: var(--color-acento);
         font-family: var(--fuente-cuerpo);
@@ -175,17 +177,24 @@
     }
     .unam-info {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
     .unam-info h4 {
-        margin: 0;
+        margin: 0.5rem 0;
         color: white;
+        font-weight: 400;
+        line-height: 1.4;
     }
 
     .hackathon-title {
         color: var(--color-acento);
-        margin: 0.5rem 0;
+        margin: 1.5rem 0;
+        font-weight: 500;
+        padding: 1rem 2rem;
+        border: 2px solid var(--color-acento);
+        border-radius: 10px;
+        display: inline-block;
     }
 
     @media (max-width: 768px) {
