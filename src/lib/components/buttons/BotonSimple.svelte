@@ -25,7 +25,7 @@
     }
 
     .boton-primario {
-        background-color: var(--color-boton);
+        background-color: var(--color-primario);
         color: var(--color-fondo);
     }
 
@@ -44,8 +44,8 @@
     }
 
     .boton-secundario {
-        background-color: var(--color-fondo);
-        color: var(--color-texto-primario);
+        background-color: var(--color-secundario);
+        color: var(--color-fondo);
     }
 
     .boton-secundario:hover { 

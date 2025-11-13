@@ -26,7 +26,7 @@
     titulo={"Selecciona recinto y fecha"} paddingTop={0} paddingBottom={0}
   ></SectionHeader>
 
-  <form on:submit|preventDefault={nextStep} class="formulario">
+  <form class="formulario">
     <div class="container-input">
     <SelectField
       id={"recinto"}

@@ -4,6 +4,7 @@
     export let label = "";
     export let optionsList = "";
     export let boton = null;
+    export let accion = null;
     export let value = "";
 </script>
 
@@ -21,10 +22,10 @@
             {/if}
         </select>
         {#if boton}
-            <div class="contenedor-icono">
+            <button type="button" class="contenedor-icono" on:click={accion}>
                 <Icon path={boton} size={32} color={"var(--color-fondo)"}
                 ></Icon>
-            </div>
+            </button>
         {/if}
     </div>
 </div>
@@ -62,7 +63,12 @@
         align-items: center;
         width: 2rem;
         height: 2rem;
-        background-color: var(--color-texto-secundario);
+        background-color: var(--color-texto-primario);
         border-radius: 50%;
+    }
+
+    .contenedor-icono:hover {
+        cursor: pointer;
+        background-color: var(--color-texto-secundario);
     }
 </style>
