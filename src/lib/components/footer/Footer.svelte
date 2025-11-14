@@ -12,7 +12,7 @@
         },
         {
             nombre: "Rocio",
-            descripcion: "Estudiante de Informática. Participé en el desarrollo del frontend de la aplicación web como parte de mi proceso de formación en desarrollo web",
+            descripcion: "Estudiante de Informática (Desarrollador Frontend en formación) Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
             imagen: "/images/integrantes/foto2.png",
             linkedin: "https://www.linkedin.com/in/rocio-santana-8a1a15346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
             github: "https://github.com/rocio1984",
@@ -43,37 +43,20 @@
 
 <!-- AQUI INICIA EL HTML -->
 <div class="full-container f-col team-page">
-    <div class="header-content f-col f-center-center">
-        <div class="contenedor1 container f-row f-center-center">
-            <img class="imagen" src="/svg/unam-logo.svg" alt="logo unam">
-            <img class="imagen" src="/svg/lema-logo.png" alt="logo unam">
-            <img class="imagen" src="/svg/fca-logo.svg" alt="logo fca">
-        </div>
-        
-        <div class="unam-info f-col f-center-center">
-            <h4>Universidad Nacional Autónoma de México</h4>
-            <h4>Facultad de Contaduría y Administración</h4>
-            <h3 class="hackathon-title">Hackatón "40 años de la Licenciatura en Informática"</h3>
-        </div>
-    </div>
     
-    </div>
-<!--<div class="full-container f-col team-page">
-    <div class="header-content f-col f-center-center">
     <div class="contenedor1 container f-row f-center-center">
         <img class="imagen" src="/svg/unam-logo.svg" alt="logo unam">
         <img class="imagen" src="/svg/lema-logo.png" alt="logo unam">
         <img class="imagen" src="/svg/fca-logo.svg" alt="logo fca">
     </div>
-    </div>
-
+    
     <div class="unam-info f-col f-center-center">
         <h4>Universidad Nacional Autónoma de México</h4>
         <h4>Facultad de Contaduría y Administración</h4>
         <h3 class="hackathon-title">Hackatón "40 años de la Licenciatura en Informática"</h3>
-    </div>-->
+    </div>
     
-    <div class="page-main-content f-col f-center-center">
+    
     <div class="contenedor2 container f-col team-intro">
         <h1>Equipo Pumitas Juniors</h1>
         <p class="description-text">
@@ -89,39 +72,26 @@
             <IntegrantesCard {integrante} />
         {/each}
     </div>
-    </div>
-
     <div class="creditos-footer">
         <p class="footer-text">
             &copy; 2025. Hecho en México.
             <span class="license">Bajo la licencia de Creative Commons Universal 1.0</span>
         </p>
     </div>
+</div>
 <!-- AQUI TERMINA EL HTML -->
 <style>
-     .header-content {
-        width: 100%;
-        background-color: var(--color-primario);
-        padding: 2rem 0 3rem 0; 
-    }
-     .page-main-content {
-        width: 100%;
-        background-color: var(--color-primario);
-        color: white;
-        padding: 0 var(--container-padding) 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
     h1,h2,h3,h4{
         font-family: var(--fuente-titulos);
     }
     .team-page {
-        background-color: var(--color-primario); 
+        background-color: var(--color-primario);
         color: white;
-        padding: 0;
-        margin: 0;
+        padding: 2rem var(--container-padding);
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .Centrado {
         text-align: center;
@@ -129,10 +99,10 @@
         margin: 2rem 0;
         font-size: 2rem;
     }
-     .team-intro {
+    .team-intro {
         align-items: center;
         text-align: center;
-        margin-bottom: 2rem; 
+        margin-bottom: 3rem;
         max-width: 800px;
     }
 
@@ -151,13 +121,13 @@
         font-size: 1.1rem;
     }
 
-     .contenedor1 {
+    .contenedor1 {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1rem; 
+        margin-bottom: 2.5rem;
         gap: 4rem;
-        padding: 0; 
+        padding: 2rem;
     }
 
     .contenedor2 {
@@ -176,10 +146,10 @@
      .creditos-footer {
         margin-top: 4rem;
         padding:2rem 0;
-        border-top: 1px solid var(--color-acento);
+        border-top: 2px solid var(--color-acento);
         text-align: center;
         width: 100%;
-        background: var(--color-primario-50); 
+        background: var(--color-primario-50);
     }
     .footer-text {
         margin: 0;
@@ -211,7 +181,7 @@
     }
     .unam-info {
         text-align: center;
-        margin-bottom: 1.5rem; 
+        margin-bottom: 2.5rem;
     }
 
     .unam-info h4 {
@@ -249,16 +219,6 @@
             grid-template-rows: repeat(4, auto);
             width: 100%;
             gap: 1.5rem;
-        }
-        .header-content {
-            padding: 1.5rem 0 2rem 0; 
-        }
-        .unam-info h4 {
-            font-size: 1.1rem;
-        }
-        .hackathon-title {
-            font-size: 1.3rem;
-            padding: 0.5rem 1rem;
         }
 
     }
