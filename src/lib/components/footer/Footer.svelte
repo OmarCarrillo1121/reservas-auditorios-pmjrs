@@ -4,11 +4,11 @@
     const integrantes = [
         {
             nombre: "Rosario",
-            descripcion: "Descripción breve, experiencia, contribuciones al proyecto u otra información que se quiera mostrar a manera de presentación del integrante.",
+            descripcion: "Estudiante de Informática. 3er Semestre. Aprendiz y colaboradora en el desarrollo de parte del fronted de la aplicación",
             imagen: "/images/integrantes/foto1.png",
             linkedin: "https://mx.linkedin.com/",
-            github: "https://github.com/",
-            email: "mail@mail.com"
+            github: "https://github.com/Rous307",
+            email: "rousertqe@gmail.com"
         },
         {
             nombre: "Rocio",
@@ -26,14 +26,14 @@
             github: "https://github.com/OmarCarrillo1121",
             email: "omarcarrillo1121@gmail.com"
         },
-{
+    {
     nombre: "Antonio",
     descripcion: "Estudiante de Informática. Colaboré en el desarrollo del frontend de la aplicación web.",
     imagen: "/images/integrantes/foto3.png",
     linkedin: "https://www.linkedin.com/in/joseantoniogarciasandoval87",
     github: "https://github.com/joseantoniogsmx",
     email: "joseantoniogsmx@gmail.com"
-}
+    }
     ];
 
     function navigateTo(route) {
