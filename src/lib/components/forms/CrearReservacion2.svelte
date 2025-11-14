@@ -22,6 +22,7 @@
         nombreEvento: "",
         tipoEvento: "",
         origenEvento: "",
+        bannerEvento: null,
         ponentes: [],
         presidium: [],
     };
@@ -70,6 +71,18 @@
                 bind:value={formulario2.origenEvento}
             ></SelectField>
         </div>
+
+        <div class="container-input">
+                    <InputField
+                        id={"bannerEvento"}
+                        type={"file"}
+                        label={"Banner"}
+                        placeholder={"Cargar banner del evento"}
+                        boton={mdiPlus}
+                        accion={() => console.log('subir archivo')}
+                        bind:value={tempPonente.semblanza}
+                    ></InputField>
+                </div>
 
         <div class="container-input">
             <div>

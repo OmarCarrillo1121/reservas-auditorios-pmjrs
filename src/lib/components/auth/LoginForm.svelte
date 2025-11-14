@@ -1,4 +1,4 @@
-<html lang="en">
+<!-- 
 <script>
     import { goto } from "$app/navigation";
     import auditoriumsList from "$lib/data/auditoriums.js";
@@ -56,4 +56,4 @@
      </form>
     </div>
 </div>           
-</html>
+</html> -->

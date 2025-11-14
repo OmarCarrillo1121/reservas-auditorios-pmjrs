@@ -1,0 +1,21 @@
+export const listaPuestos = [
+  { value: "Profesor/Asesor", name: "Profesor/Asesor" },
+  { value: "Investigador", name: "Investigador" },
+  { value: "Coordinador de Carrera", name: "Coordinador de Carrera" },
+  { value: "Director de Departamento", name: "Director de Departamento" },
+  { value: "Secretario Administrativo", name: "Secretario Administrativo" },
+  { value: "Coordinador Administrativo", name: "Coordinador Administrativo" },
+  { value: "Subdirector", name: "Subdirector" },
+  { value: "Jefe de Área", name: "Jefe de Área" },
+  { value: "Auxiliar Administrativo", name: "Auxiliar Administrativo" },
+  { value: "Responsable de Recursos Humanos", name: "Responsable de Recursos Humanos" },
+  { value: "Responsable de Finanzas", name: "Responsable de Finanzas" },
+  { value: "Responsable de Contabilidad", name: "Responsable de Contabilidad" },
+  { value: "Encargado de Comunicación Social", name: "Encargado de Comunicación Social" },
+  { value: "Director de Facultad", name: "Director de Facultad" },
+  { value: "Secretario de Facultad", name: "Secretario de Facultad" },
+  { value: "Coordinador de Posgrado", name: "Coordinador de Posgrado" },
+  { value: "Coordinador de Bolsa de Trabajo", name: "Coordinador de Bolsa de Trabajo" },
+  { value: "Encargado de Fomento Editorial", name: "Encargado de Fomento Editorial" },
+  { value: "Administrador", name: "Administrador" }
+];

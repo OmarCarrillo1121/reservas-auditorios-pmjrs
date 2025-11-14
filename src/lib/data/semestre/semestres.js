@@ -1,0 +1,6 @@
+const listaSemestres = [
+  '2026-1',
+  '2026-2'
+];
+
+export default listaSemestres;

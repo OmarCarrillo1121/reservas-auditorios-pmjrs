@@ -9,7 +9,7 @@
 
 <main class="flex flex-col items-center justify-center min-h-screen text-center">
   <h1 class="text-5xl font-bold text-red-600">{status}</h1>
-  <p class="mt-2 text-lg">
+  <p class="mt-2 text-2xl">
     {status === 404
       ? "La página que buscas no existe 🕵️‍♂️"
       : "Ocurrió un error inesperado."}

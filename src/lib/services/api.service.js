@@ -1,16 +1,19 @@
 const BASE_URL = 'http://localhost:8080/api';
-//const BASE_URL = 'https://mi-servidor.com/api'; // Produccion
+// const BASE_URL = 'https://mi-servidor.com/api'; // Produccion
 
 async function request(path, options = {}) {
   const url = `${BASE_URL}${path}`;
 
+  const token = localStorage.getItem('token');
+
   const defaultHeaders = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    ...(token ? { Authorization: `Bearer ${token}` } : {})
   };
 
   const config = {
-    headers: { ...defaultHeaders, ...options.headers },
-    ...options
+    ...options,
+    headers: { ...defaultHeaders, ...options.headers }
   };
 
   const response = await fetch(url, config);
@@ -24,12 +27,12 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  get: (path, options = {}) => 
+  get: (path, options = {}) =>
     request(path, { ...options, method: 'GET' }),
   post: (path, body, options = {}) =>
     request(path, { ...options, method: 'POST', body: JSON.stringify(body) }),
   put: (path, body, options = {}) =>
     request(path, { ...options, method: 'PUT', body: JSON.stringify(body) }),
-  del: (path, options = {}) => 
+  del: (path, options = {}) =>
     request(path, { ...options, method: 'DELETE' })
 };

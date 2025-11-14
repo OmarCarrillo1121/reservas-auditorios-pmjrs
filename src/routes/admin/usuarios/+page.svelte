@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { getAllUsuarios } from "$lib/services/usuarios.service.js";
+    import { navigateTo } from "$lib/utils/navigate.utils";
 
     import TablaBasica from "$lib/components/table/TablaBasica.svelte";
     import TablaFiltros from "$lib/components/table/TablaFiltros.svelte";
@@ -16,7 +17,8 @@
             botonType: "search",
             tipo: "primario",
             textoBoton: "Crear usuario",
-            accion: "buscar",
+            accion: () => {navigateTo("usuarios/crear-usuario");
+            },
         },
     ];
 

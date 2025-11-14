@@ -10,16 +10,15 @@
     import MainHeader from "$lib/components/header/MainHeader.svelte";
     import Navbar from "$lib/components/navbar/Navbar.svelte";
     import Boton from "$lib/components/buttons/BotonSimple.svelte";
+    import { getUsuarioLocal } from "$lib/services/auth.service";
+    import BotonPerfilUsuario from "$lib/components/buttons/BotonPerfilUsuario.svelte";
 
     let listaAuditorios = [];
+    let usuario = null;
 
     onMount(async () => {
-        try {
-            listaAuditorios = await getRecintos();
-            console.log(listaAuditorios);
-        } catch (err) {
-            console.warn(err);
-        }
+        usuario = getUsuarioLocal();
+        console.log("Usuario actual:", usuario);
     });
 
     const navigationItems = [
@@ -50,17 +49,23 @@
     ];
 </script>
 
-<MainHeader>
-    <Boton 
-        slot="acciones"
-        botonId={'iniciarSesion'}
-        botonType={'button'}
-        tipo={"primario-acento"} 
-        textoBoton={"Iniciar sesion"} 
-        accion= {() => navigateTo("/login")}
-    >
-    </Boton>
-</MainHeader>
+{#if usuario && Object.keys(usuario).length > 0}
+    <MainHeader>
+        <BotonPerfilUsuario slot="acciones"></BotonPerfilUsuario>
+    </MainHeader>
+{:else}
+    <MainHeader>
+        <Boton
+            slot="acciones"
+            botonId={"iniciarSesion"}
+            botonType={"button"}
+            tipo={"primario-acento"}
+            textoBoton={"Iniciar sesion"}
+            accion={() => navigateTo("/login")}
+        ></Boton>
+    </MainHeader>
+{/if}
+
 <Navbar navbarItems={navigationItems}></Navbar>
 
 <section id="proximosEventos" class="container">

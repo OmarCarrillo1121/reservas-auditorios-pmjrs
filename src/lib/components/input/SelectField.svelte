@@ -17,7 +17,7 @@
             <option value="0">Sin seleccion</option>
             {#if optionsList.length > 0}
                 {#each optionsList as option}
-                    <option value="">{option.name}</option>
+                    <option value={option.value}>{option.name}</option>
                 {/each}
             {/if}
         </select>
