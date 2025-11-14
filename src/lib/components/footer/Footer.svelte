@@ -26,14 +26,14 @@
             github: "https://github.com/OmarCarrillo1121",
             email: "omarcarrillo1121@gmail.com"
         },
-    {
-    nombre: "Antonio",
-    descripcion: "Estudiante de Informática. Colaboré en el desarrollo del frontend de la aplicación web.",
-    imagen: "/images/integrantes/foto3.png",
-    linkedin: "https://www.linkedin.com/in/joseantoniogarciasandoval87",
-    github: "https://github.com/joseantoniogsmx",
-    email: "joseantoniogsmx@gmail.com"
-    }
+        {
+            nombre: "Antonio",
+            descripcion: "Estudiante de Informática. Colaboré en el desarrollo del frontend de la aplicación web.",
+            imagen: "/images/integrantes/foto3.png",
+            linkedin: "https://www.linkedin.com/in/joseantoniogarciasandoval87",
+            github: "https://github.com/joseantoniogsmx",
+            email: "joseantoniogsmx@gmail.com"
+        }
     ];
 
     function navigateTo(route) {
@@ -43,7 +43,7 @@
 
 <!-- AQUI INICIA EL HTML -->
 <div class="full-container f-col team-page">
-    
+    <div class= "header-contraste f-col f-center-center">
     <div class="contenedor1 container f-row f-center-center">
         <img class="imagen" src="/svg/unam-logo.svg" alt="logo unam">
         <img class="imagen" src="/svg/lema-logo.png" alt="logo unam">
@@ -55,8 +55,9 @@
         <h4>Facultad de Contaduría y Administración</h4>
         <h3 class="hackathon-title">Hackatón "40 años de la Licenciatura en Informática"</h3>
     </div>
-    
-    
+    </div>
+
+    <div class="page-content-wraper f-col f-center-center">
     <div class="contenedor2 container f-col team-intro">
         <h1>Equipo Pumitas Juniors</h1>
         <p class="description-text">
@@ -72,6 +73,8 @@
             <IntegrantesCard {integrante} />
         {/each}
     </div>
+    </div>
+
     <div class="creditos-footer">
         <p class="footer-text">
             &copy; 2025. Hecho en México.
@@ -81,17 +84,51 @@
 </div>
 <!-- AQUI TERMINA EL HTML -->
 <style>
+    .header-contraste{
+        width: 100%;
+        background-color: var(--color-primario-50);
+        padding:2rem 0;
+    }
+    .page-content-wraper{
+        width: 100%;
+        background-color: var(--color-primario);
+        color: white;
+        padding: 2rem var(--container-padding);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     h1,h2,h3,h4{
         font-family: var(--fuente-titulos);
     }
     .team-page {
-        background-color: var(--color-primario);
+        background-color: var(--color-fondo); 
         color: white;
-        padding: 2rem var(--container-padding);
+        padding: 0;
         min-height: 100vh;
-        display: flex;
+        /*display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center;*/
+    }
+     .header-contraste .imagen {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+    .header-contraste .hackathon-title {
+        color: white; 
+        margin: 1rem 0;
+        font-weight: 500;
+        padding: 0; 
+        border: none; 
+        display: block;
+        font-size: 1.5rem;
+    }
+    .header-contraste .unam-info h4 {
+        color: white; 
+        margin: 0.3rem 0;
+        font-weight: 400;
+        line-height: 1.3;
+        font-size: 1.3rem;
     }
     .Centrado {
         text-align: center;
@@ -129,14 +166,12 @@
         gap: 4rem;
         padding: 2rem;
     }
-
     .contenedor2 {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 2rem;
     }
-
      .imagen {
         width: 140px;
         height: auto;
@@ -191,8 +226,7 @@
         line-height: 1.3;
         font-size: 1.3rem;
     }
-
-    .hackathon-title {
+    /*.hackathon-title {
         color: var(--color-acento);
         margin: 1rem 0;
         font-weight: 500;
@@ -201,14 +235,24 @@
         border-radius: 10px;
         display: inline-block;
         font-size: 1.5rem;
-    }
+    }*/
 
     @media (max-width: 768px) {
         .contenedor1 {
             flex-direction: column;
             gap: 1rem;
+            padding: 1rem 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        
+        .unam-info{
+            margin-bottom: 1rem;
+        }
+        .unam-info h4{
+            font-size: 1.1rem;
+        }
+        .hackathon-title{
+            font-size: 1.3rem;
+        }
         .imagen {
             width: 100px;
             height: 120px;
