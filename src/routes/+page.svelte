@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte";
     import { api } from "$lib/services/api.service.js";
-    import { getRecintos } from "$lib/services/recintos.service";
     import AuditoriumCard from "$lib/components/cards/AuditoriumCard.svelte";
     import Footer from "$lib/components/footer/Footer.svelte";
     import { Carousel, Controls, CarouselIndicators } from "flowbite-svelte";
@@ -12,6 +11,8 @@
     import Boton from "$lib/components/buttons/BotonSimple.svelte";
     import { getUsuarioLocal } from "$lib/services/auth.service";
     import BotonPerfilUsuario from "$lib/components/buttons/BotonPerfilUsuario.svelte";
+    import { listaRecintos } from "$lib/data/recinto/recintos";
+    import SectionHeader from "$lib/components/header/SectionHeader.svelte";
 
     let listaAuditorios = [];
     let usuario = null;
@@ -19,6 +20,20 @@
     onMount(async () => {
         usuario = getUsuarioLocal();
         console.log("Usuario actual:", usuario);
+
+        usuario && usuario.rolUsuario == "user" ? navigationItems.push({
+        label: "Panel usuario",
+        icon: null,
+        iconSize: 32,
+        href: "/reservas",
+    }) : null;
+
+    usuario && usuario.rolUsuario == "admin" ? navigationItems.push({
+        label: "Panel admin",
+        icon: null,
+        iconSize: 32,
+        href: "/admin",
+    }) : null;
     });
 
     const navigationItems = [
@@ -47,6 +62,8 @@
             href: "#sobreNosotros",
         },
     ];
+
+    
 </script>
 
 {#if usuario && Object.keys(usuario).length > 0}
@@ -69,46 +86,42 @@
 <Navbar navbarItems={navigationItems}></Navbar>
 
 <section id="proximosEventos" class="container">
-    <section class="section-title">
-        <h3>Próximos eventos</h3>
-    </section>
-    <Carousel {images} duration={10000}>
+    <SectionHeader titulo="Proximos eventos"></SectionHeader>
+    <Carousel {images} slideFit={'cover'} duration={10000} style="height: 400px;">
         <Controls />
         <CarouselIndicators />
     </Carousel>
 </section>
 
 <section id="auditorios" class="container">
-    <section class="section-title">
-        <h3>Auditorios</h3>
-    </section>
+    <SectionHeader titulo="Auditorios"></SectionHeader>
 
     <div class="cards-container">
-        {#each listaAuditorios as auditorioData}
+        {#each listaRecintos as auditorioData}
             <AuditoriumCard {auditorioData} />
         {/each}
     </div>
 </section>
 
 <section id="croquis" class="container">
-    <section class="section-title">
-        <h3>Croquis de localizacion</h3>
-    </section>
-    <div style="height: 800px; border: solid 1px #000"></div>
+    <SectionHeader titulo="Croquis de localizacion"></SectionHeader>
+    <div style="height: 760px; filter: grayscale(40%);">
+        <img src='/images/croquis/croquis.png' alt="croquis"/>
+    </div>
 </section>
 
-<footer id="sobreNosotros">
+<footer id="sobreNosotros" class="full-container">
+    <SectionHeader></SectionHeader>
     <Footer />
 </footer>
 
 <style>
     .cards-container {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         align-items: center;
-        background-color: var(--color-fondo-tarjeta);
-        color: var(--color-texto-primario);
-        padding: 1rem 8rem;
+        padding: 2rem 0rem;
+        gap: 2rem;
     }
 </style>

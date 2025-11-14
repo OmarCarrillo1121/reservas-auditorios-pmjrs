@@ -1,18 +1,21 @@
 <script>
+    import Boton from "../buttons/BotonSimple.svelte";
     export let auditorioData = [];
+    
 </script>
 
 <!-- AQUI INICIA EL HTML -->
 <section class="card-container">
-    <div class="card-header">IMAGEN</div>
+    <div class="card-header">
+        <img src={auditorioData.imagen1} alt="">
+    </div>
     <div class="card-body">
-        <p>{auditorioData.nombreRecinto}</p>
-        <p>UBICACION: {auditorioData.ubicacionRecinto}</p>
-        <p>EDIFICIO: {auditorioData.edificioRecinto}</p>
-        <p>CAPACIDAD: {auditorioData.capacidadRecinto}</p>
+        <h3 style='font-weight: 600;'>{auditorioData.nombre_recinto}</h3>
+        <span style='font-weight: 600; padding-right: 0.5rem;'>Ubicacion: </span><span>{auditorioData.edificio_recinto}</span>
+        <span style='font-weight: 600; padding-right: 0.5rem;'>Capacidad: </span><span>{auditorioData.capacidad_recinto}</span>
     </div>
     <div class="card-footer">
-        <button>Ver ubicacion</button>
+        <p style="color: white; font-weight: 600; font-size: 1.1rem">Ubicacion</p>
     </div>
 </section>
 <!-- AQUI TERMINA EL HTML -->
@@ -25,32 +28,36 @@
         align-items: center;
         background-color: var(--color-bg-cards);
         color: var(--color-text-primary);
-        max-width: 200px;
-        border: solid 1px #000;
-        border-radius: 1rem;
+        max-width: 100%;
     }
 
     .card-header {
-        border: solid 1px black;
         height: 12rem;
         width: 100%;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
     }
 
     .card-body {
-        border: solid 1px black;
+        padding: 2rem;
+        background-color: var(--color-fondo-tarjeta);
         height: 11rem;
         width: 100%;
     }
 
     .card-footer {
-        border: solid 1px black;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        background-color: var(--color-secundario);
         height: 4rem;
         width: 100%;
-        button {
-            border: solid 1px #000;
-            border-radius: 1rem;
-        }
+    }
+
+    span {
+        font-size: 1.1rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
     }
 </style>
