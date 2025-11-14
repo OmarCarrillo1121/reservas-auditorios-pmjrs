@@ -12,7 +12,7 @@
         },
         {
             nombre: "Rocio",
-            descripcion: "Estudiante de Informática (Desarrollador Frontend en formación) Como parte de mi primer proyecto,participé en el desarrollo del frontend de la aplicación web",
+            descripcion: "Estudiante de Informática. Participé en el desarrollo del fronted de la aplicación como parte de mi formación en desarrollo web",
             imagen: "/images/integrantes/foto2.png",
             linkedin: "https://www.linkedin.com/in/rocio-santana-8a1a15346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
             github: "https://github.com/rocio1984",
